@@ -9,6 +9,7 @@ target 'SwiftShare' do
    pod 'Alamofire'
    pod 'RxSwift'
    pod 'SwiftyBeaver'
+   pod 'SwiftLint'
 
   target 'SwiftShareTests' do
     # Pods for testing

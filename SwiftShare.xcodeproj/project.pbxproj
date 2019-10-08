@@ -14,6 +14,17 @@
 		378E3CD2234C9FBB00D867A7 /* SwiftShare.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 378E3CD1234C9FBB00D867A7 /* SwiftShare.podspec */; };
 		378E3CD4234C9FC500D867A7 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 378E3CD3234C9FC500D867A7 /* Podfile */; };
 		378E3CD6234CA84500D867A7 /* UtilityLogging.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378E3CD5234CA84500D867A7 /* UtilityLogging.swift */; };
+		379B7E0C234CB00E00C57DCA /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 379B7E0B234CB00E00C57DCA /* README.md */; };
+		379B7E0E234D00C700C57DCA /* ChangeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379B7E0D234D00C700C57DCA /* ChangeType.swift */; };
+		379B7E10234D00FB00C57DCA /* HTTPStatusCodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379B7E0F234D00FB00C57DCA /* HTTPStatusCodes.swift */; };
+		379B7E12234D014E00C57DCA /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379B7E11234D014E00C57DCA /* Storage.swift */; };
+		379B7E14234D017B00C57DCA /* CacheBaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379B7E13234D017A00C57DCA /* CacheBaseManager.swift */; };
+		379B7E16234D01F100C57DCA /* KeychainPasswordItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379B7E15234D01F100C57DCA /* KeychainPasswordItem.swift */; };
+		379B7E18234D025500C57DCA /* KeychainConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379B7E17234D025500C57DCA /* KeychainConfiguration.swift */; };
+		379B7E1A234D036000C57DCA /* NetworkBaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379B7E19234D036000C57DCA /* NetworkBaseManager.swift */; };
+		379B7E1C234D039200C57DCA /* NetworkReachabilityAlerter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379B7E1B234D039200C57DCA /* NetworkReachabilityAlerter.swift */; };
+		379B7E1F234D042800C57DCA /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379B7E1E234D042800C57DCA /* UIViewController+.swift */; };
+		379B7E22234D04AD00C57DCA /* SimpleBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379B7E21234D04AD00C57DCA /* SimpleBaseViewController.swift */; };
 		B0635C55351D87CA8D61A03B /* Pods_SwiftShare.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9DB39692407B7697622B31E /* Pods_SwiftShare.framework */; };
 		E8543E4B0C31E6E06FAB3853 /* Pods_SwiftShare_SwiftShareTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7D29C57FFE9BAE92C7E6A36 /* Pods_SwiftShare_SwiftShareTests.framework */; };
 /* End PBXBuildFile section */
@@ -39,6 +50,17 @@
 		378E3CD1234C9FBB00D867A7 /* SwiftShare.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = SwiftShare.podspec; sourceTree = "<group>"; };
 		378E3CD3234C9FC500D867A7 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		378E3CD5234CA84500D867A7 /* UtilityLogging.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UtilityLogging.swift; sourceTree = "<group>"; };
+		379B7E0B234CB00E00C57DCA /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		379B7E0D234D00C700C57DCA /* ChangeType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeType.swift; sourceTree = "<group>"; };
+		379B7E0F234D00FB00C57DCA /* HTTPStatusCodes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPStatusCodes.swift; sourceTree = "<group>"; };
+		379B7E11234D014E00C57DCA /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
+		379B7E13234D017A00C57DCA /* CacheBaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheBaseManager.swift; sourceTree = "<group>"; };
+		379B7E15234D01F100C57DCA /* KeychainPasswordItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainPasswordItem.swift; sourceTree = "<group>"; };
+		379B7E17234D025500C57DCA /* KeychainConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainConfiguration.swift; sourceTree = "<group>"; };
+		379B7E19234D036000C57DCA /* NetworkBaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkBaseManager.swift; sourceTree = "<group>"; };
+		379B7E1B234D039200C57DCA /* NetworkReachabilityAlerter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkReachabilityAlerter.swift; sourceTree = "<group>"; };
+		379B7E1E234D042800C57DCA /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
+		379B7E21234D04AD00C57DCA /* SimpleBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleBaseViewController.swift; sourceTree = "<group>"; };
 		4194FBD65DDB5C3D4D46DA64 /* Pods-SwiftShare-SwiftShareTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftShare-SwiftShareTests.debug.xcconfig"; path = "Target Support Files/Pods-SwiftShare-SwiftShareTests/Pods-SwiftShare-SwiftShareTests.debug.xcconfig"; sourceTree = "<group>"; };
 		510C6783F547C8B0B02BBFF3 /* Pods-SwiftShare-SwiftShareTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftShare-SwiftShareTests.release.xcconfig"; path = "Target Support Files/Pods-SwiftShare-SwiftShareTests/Pods-SwiftShare-SwiftShareTests.release.xcconfig"; sourceTree = "<group>"; };
 		55FDE00E019DFA6CC3974219 /* Pods-SwiftShare.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftShare.debug.xcconfig"; path = "Target Support Files/Pods-SwiftShare/Pods-SwiftShare.debug.xcconfig"; sourceTree = "<group>"; };
@@ -82,6 +104,7 @@
 		378E3C4F234C9A9000D867A7 = {
 			isa = PBXGroup;
 			children = (
+				379B7E0B234CB00E00C57DCA /* README.md */,
 				378E3CD3234C9FC500D867A7 /* Podfile */,
 				378E3CD1234C9FBB00D867A7 /* SwiftShare.podspec */,
 				378E3C5B234C9A9000D867A7 /* SwiftShare */,
@@ -104,7 +127,17 @@
 		378E3C5B234C9A9000D867A7 /* SwiftShare */ = {
 			isa = PBXGroup;
 			children = (
+				379B7E1D234D040E00C57DCA /* Extensions */,
+				379B7E20234D048E00C57DCA /* ViewControllers */,
 				378E3C73234C9BBB00D867A7 /* AppDataError.swift */,
+				379B7E0D234D00C700C57DCA /* ChangeType.swift */,
+				379B7E0F234D00FB00C57DCA /* HTTPStatusCodes.swift */,
+				379B7E11234D014E00C57DCA /* Storage.swift */,
+				379B7E13234D017A00C57DCA /* CacheBaseManager.swift */,
+				379B7E15234D01F100C57DCA /* KeychainPasswordItem.swift */,
+				379B7E17234D025500C57DCA /* KeychainConfiguration.swift */,
+				379B7E19234D036000C57DCA /* NetworkBaseManager.swift */,
+				379B7E1B234D039200C57DCA /* NetworkReachabilityAlerter.swift */,
 				378E3CD5234CA84500D867A7 /* UtilityLogging.swift */,
 				378E3C5C234C9A9000D867A7 /* SwiftShare.h */,
 				378E3C5D234C9A9000D867A7 /* Info.plist */,
@@ -119,6 +152,22 @@
 				378E3C69234C9A9000D867A7 /* Info.plist */,
 			);
 			path = SwiftShareTests;
+			sourceTree = "<group>";
+		};
+		379B7E1D234D040E00C57DCA /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				379B7E1E234D042800C57DCA /* UIViewController+.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		379B7E20234D048E00C57DCA /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				379B7E21234D04AD00C57DCA /* SimpleBaseViewController.swift */,
+			);
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 		C4C195BE5F63F0BE23CD2358 /* Frameworks */ = {
@@ -226,6 +275,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				379B7E0C234CB00E00C57DCA /* README.md in Resources */,
 				378E3CD4234C9FC500D867A7 /* Podfile in Resources */,
 				378E3CD2234C9FBB00D867A7 /* SwiftShare.podspec in Resources */,
 			);
@@ -309,8 +359,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				379B7E0E234D00C700C57DCA /* ChangeType.swift in Sources */,
+				379B7E22234D04AD00C57DCA /* SimpleBaseViewController.swift in Sources */,
+				379B7E14234D017B00C57DCA /* CacheBaseManager.swift in Sources */,
+				379B7E1C234D039200C57DCA /* NetworkReachabilityAlerter.swift in Sources */,
+				379B7E18234D025500C57DCA /* KeychainConfiguration.swift in Sources */,
 				378E3CD6234CA84500D867A7 /* UtilityLogging.swift in Sources */,
+				379B7E16234D01F100C57DCA /* KeychainPasswordItem.swift in Sources */,
+				379B7E10234D00FB00C57DCA /* HTTPStatusCodes.swift in Sources */,
 				378E3C74234C9BBB00D867A7 /* AppDataError.swift in Sources */,
+				379B7E1F234D042800C57DCA /* UIViewController+.swift in Sources */,
+				379B7E1A234D036000C57DCA /* NetworkBaseManager.swift in Sources */,
+				379B7E12234D014E00C57DCA /* Storage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
