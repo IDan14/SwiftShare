@@ -80,3 +80,9 @@ source 'https://github.com/CocoaPods/Specs.git'
 * [SimpleTextViewController](SwiftShare/ViewControllers/SimpleTextViewController.swift) - Extends [SimpleBaseViewController](SwiftShare/ViewControllers/SimpleBaseViewController.swift) and uses a TextView as main view.
 * [SimpleWebViewController](SwiftShare/ViewControllers/SimpleWebViewController.swift) - Extends [SimpleBaseViewController](SwiftShare/ViewControllers/SimpleBaseViewController.swift) and uses a WKWebView as main view.
 * [SlideMenuViewController](SwiftShare/ViewControllers/SlideMenuViewController.swift) - Base class for a sliding menu (left-side hamburger menu).
+
+### App Version Checker
+* [AppVersionChecker](SwiftShare/AppVersionChecker/AppVersionChecker.swift) - determines version status (see documentation for method check).
+* [UpdateOverlay](SwiftShare/AppVersionChecker/UpdateOverlay.swift) - displays pop-up with update message and options (based on version status).
+* [VersionStatus](SwiftShare/AppVersionChecker/VersionStatus.swift) - enum defining installed version status (in relation to available update).
+* [VersionData](SwiftShare/AppVersionChecker/VersionData.swift) - object describing update information (usually provided by server).

@@ -41,6 +41,10 @@
 		379B7E3F234D0D1700C57DCA /* PostComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379B7E3E234D0D1700C57DCA /* PostComposer.swift */; };
 		379B7E41234D0DAB00C57DCA /* SegueGoLeftToRight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379B7E40234D0DAB00C57DCA /* SegueGoLeftToRight.swift */; };
 		379B7E43234D0DEB00C57DCA /* UICollectionViewLeftAlignedFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379B7E42234D0DEB00C57DCA /* UICollectionViewLeftAlignedFlowLayout.swift */; };
+		379B7E46234D0F0000C57DCA /* VersionStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379B7E45234D0F0000C57DCA /* VersionStatus.swift */; };
+		379B7E48234D0F2000C57DCA /* UpdateOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379B7E47234D0F2000C57DCA /* UpdateOverlay.swift */; };
+		379B7E4A234D0F5900C57DCA /* AppVersionChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379B7E49234D0F5900C57DCA /* AppVersionChecker.swift */; };
+		379B7E4C234D0F7700C57DCA /* VersionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379B7E4B234D0F7700C57DCA /* VersionData.swift */; };
 		B0635C55351D87CA8D61A03B /* Pods_SwiftShare.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9DB39692407B7697622B31E /* Pods_SwiftShare.framework */; };
 		E8543E4B0C31E6E06FAB3853 /* Pods_SwiftShare_SwiftShareTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7D29C57FFE9BAE92C7E6A36 /* Pods_SwiftShare_SwiftShareTests.framework */; };
 /* End PBXBuildFile section */
@@ -93,6 +97,10 @@
 		379B7E3E234D0D1700C57DCA /* PostComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostComposer.swift; sourceTree = "<group>"; };
 		379B7E40234D0DAB00C57DCA /* SegueGoLeftToRight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegueGoLeftToRight.swift; sourceTree = "<group>"; };
 		379B7E42234D0DEB00C57DCA /* UICollectionViewLeftAlignedFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICollectionViewLeftAlignedFlowLayout.swift; sourceTree = "<group>"; };
+		379B7E45234D0F0000C57DCA /* VersionStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VersionStatus.swift; sourceTree = "<group>"; };
+		379B7E47234D0F2000C57DCA /* UpdateOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateOverlay.swift; sourceTree = "<group>"; };
+		379B7E49234D0F5900C57DCA /* AppVersionChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppVersionChecker.swift; sourceTree = "<group>"; };
+		379B7E4B234D0F7700C57DCA /* VersionData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VersionData.swift; sourceTree = "<group>"; };
 		4194FBD65DDB5C3D4D46DA64 /* Pods-SwiftShare-SwiftShareTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftShare-SwiftShareTests.debug.xcconfig"; path = "Target Support Files/Pods-SwiftShare-SwiftShareTests/Pods-SwiftShare-SwiftShareTests.debug.xcconfig"; sourceTree = "<group>"; };
 		510C6783F547C8B0B02BBFF3 /* Pods-SwiftShare-SwiftShareTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftShare-SwiftShareTests.release.xcconfig"; path = "Target Support Files/Pods-SwiftShare-SwiftShareTests/Pods-SwiftShare-SwiftShareTests.release.xcconfig"; sourceTree = "<group>"; };
 		55FDE00E019DFA6CC3974219 /* Pods-SwiftShare.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftShare.debug.xcconfig"; path = "Target Support Files/Pods-SwiftShare/Pods-SwiftShare.debug.xcconfig"; sourceTree = "<group>"; };
@@ -159,6 +167,7 @@
 		378E3C5B234C9A9000D867A7 /* SwiftShare */ = {
 			isa = PBXGroup;
 			children = (
+				379B7E44234D0EEC00C57DCA /* AppVersionChecker */,
 				379B7E1D234D040E00C57DCA /* Extensions */,
 				379B7E27234D080F00C57DCA /* UI */,
 				379B7E20234D048E00C57DCA /* ViewControllers */,
@@ -224,6 +233,17 @@
 				379B7E3A234D0C6B00C57DCA /* UtilityToolkit.swift */,
 			);
 			path = UI;
+			sourceTree = "<group>";
+		};
+		379B7E44234D0EEC00C57DCA /* AppVersionChecker */ = {
+			isa = PBXGroup;
+			children = (
+				379B7E49234D0F5900C57DCA /* AppVersionChecker.swift */,
+				379B7E47234D0F2000C57DCA /* UpdateOverlay.swift */,
+				379B7E45234D0F0000C57DCA /* VersionStatus.swift */,
+				379B7E4B234D0F7700C57DCA /* VersionData.swift */,
+			);
+			path = AppVersionChecker;
 			sourceTree = "<group>";
 		};
 		C4C195BE5F63F0BE23CD2358 /* Frameworks */ = {
@@ -415,6 +435,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				379B7E4A234D0F5900C57DCA /* AppVersionChecker.swift in Sources */,
 				379B7E24234D062D00C57DCA /* MonthYearPickerViewController.swift in Sources */,
 				379B7E3B234D0C6B00C57DCA /* UtilityToolkit.swift in Sources */,
 				379B7E39234D0B0100C57DCA /* UtilityExtensions.swift in Sources */,
@@ -426,10 +447,12 @@
 				379B7E37234D0ACC00C57DCA /* UNNotificationAttachment+.swift in Sources */,
 				379B7E2D234D093300C57DCA /* SlideMenuViewController.swift in Sources */,
 				379B7E14234D017B00C57DCA /* CacheBaseManager.swift in Sources */,
+				379B7E4C234D0F7700C57DCA /* VersionData.swift in Sources */,
 				379B7E1C234D039200C57DCA /* NetworkReachabilityAlerter.swift in Sources */,
 				379B7E26234D07BA00C57DCA /* SimpleTextViewController.swift in Sources */,
 				379B7E41234D0DAB00C57DCA /* SegueGoLeftToRight.swift in Sources */,
 				379B7E18234D025500C57DCA /* KeychainConfiguration.swift in Sources */,
+				379B7E48234D0F2000C57DCA /* UpdateOverlay.swift in Sources */,
 				379B7E35234D0A9B00C57DCA /* UIView+.swift in Sources */,
 				378E3CD6234CA84500D867A7 /* UtilityLogging.swift in Sources */,
 				379B7E16234D01F100C57DCA /* KeychainPasswordItem.swift in Sources */,
@@ -441,6 +464,7 @@
 				379B7E1A234D036000C57DCA /* NetworkBaseManager.swift in Sources */,
 				379B7E43234D0DEB00C57DCA /* UICollectionViewLeftAlignedFlowLayout.swift in Sources */,
 				379B7E12234D014E00C57DCA /* Storage.swift in Sources */,
+				379B7E46234D0F0000C57DCA /* VersionStatus.swift in Sources */,
 				379B7E2B234D090D00C57DCA /* SimpleWebViewController.swift in Sources */,
 				379B7E31234D0A4B00C57DCA /* UIImage+.swift in Sources */,
 			);

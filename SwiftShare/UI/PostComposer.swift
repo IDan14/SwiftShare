@@ -107,6 +107,8 @@ open class PostComposer {
                             } else {
                                 event(.success(false))
                             }
+                        @unknown default:
+                            event(.error(AppDataError.unknownError(reason: "Unknown result")))
                         }
                     }
                     presenter.present(composeVC, animated: true)
@@ -197,6 +199,8 @@ open class PostComposer {
                     self.event(.success(true))
                 case .cancelled, .saved:
                     self.event(.success(false))
+                @unknown default:
+                    self.event(.error(AppDataError.unknownError(reason: "Unknown result")))
                 }
             }
         }
