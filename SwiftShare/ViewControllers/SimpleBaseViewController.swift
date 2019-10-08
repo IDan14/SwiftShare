@@ -8,6 +8,7 @@
 
 import UIKit
 
+/// Base class for a view controller showing a main view and a row of buttons. Used for programmatically created modals / pop-ups.
 open class SimpleBaseViewController: UIViewController {
 
     public typealias ButtonAction = (() -> Void)

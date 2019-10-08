@@ -11,10 +11,10 @@ import UIKit
 public extension UIViewController {
 
     func displayAlert(message: String,
-                             title: String? = nil,
-                             completion: (() -> Swift.Void)? = nil,
-                             clickHandler: (() -> Swift.Void)? = nil,
-                             canReplacePreviousModal: Bool = true) {
+                      title: String? = nil,
+                      completion: (() -> Swift.Void)? = nil,
+                      clickHandler: (() -> Swift.Void)? = nil,
+                      canReplacePreviousModal: Bool = true) {
         let titleString = NSLocalizedString(title ?? "Alert Title - Any error", comment: "")
         let messageString = NSLocalizedString(message, comment: "")
         self.displayAlert(localizedMessage: messageString, localizedTitle: titleString, completion: completion,
@@ -22,10 +22,10 @@ public extension UIViewController {
     }
 
     func displayAlert(localizedMessage: String,
-                             localizedTitle: String = NSLocalizedString("Alert Title - Any error", comment: ""),
-                             completion: (() -> Swift.Void)? = nil,
-                             clickHandler: (() -> Swift.Void)? = nil,
-                             canReplacePreviousModal: Bool = true) {
+                      localizedTitle: String = NSLocalizedString("Alert Title - Any error", comment: ""),
+                      completion: (() -> Swift.Void)? = nil,
+                      clickHandler: (() -> Swift.Void)? = nil,
+                      canReplacePreviousModal: Bool = true) {
         let alert = UIAlertController(title: localizedTitle, message: localizedMessage, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "OK"), style: .default,
                                       handler: (clickHandler == nil) ? nil : { (_) in clickHandler?()}))

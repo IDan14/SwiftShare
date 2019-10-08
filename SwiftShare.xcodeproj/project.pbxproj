@@ -25,6 +25,22 @@
 		379B7E1C234D039200C57DCA /* NetworkReachabilityAlerter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379B7E1B234D039200C57DCA /* NetworkReachabilityAlerter.swift */; };
 		379B7E1F234D042800C57DCA /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379B7E1E234D042800C57DCA /* UIViewController+.swift */; };
 		379B7E22234D04AD00C57DCA /* SimpleBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379B7E21234D04AD00C57DCA /* SimpleBaseViewController.swift */; };
+		379B7E24234D062D00C57DCA /* MonthYearPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379B7E23234D062D00C57DCA /* MonthYearPickerViewController.swift */; };
+		379B7E26234D07BA00C57DCA /* SimpleTextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379B7E25234D07BA00C57DCA /* SimpleTextViewController.swift */; };
+		379B7E29234D084000C57DCA /* VerticallyCenteredTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379B7E28234D084000C57DCA /* VerticallyCenteredTextView.swift */; };
+		379B7E2B234D090D00C57DCA /* SimpleWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379B7E2A234D090D00C57DCA /* SimpleWebViewController.swift */; };
+		379B7E2D234D093300C57DCA /* SlideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379B7E2C234D093300C57DCA /* SlideMenuViewController.swift */; };
+		379B7E2F234D0A1700C57DCA /* UIContentSizeCategory+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379B7E2E234D0A1700C57DCA /* UIContentSizeCategory+.swift */; };
+		379B7E31234D0A4B00C57DCA /* UIImage+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379B7E30234D0A4B00C57DCA /* UIImage+.swift */; };
+		379B7E33234D0A7400C57DCA /* UITextField+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379B7E32234D0A7400C57DCA /* UITextField+.swift */; };
+		379B7E35234D0A9B00C57DCA /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379B7E34234D0A9B00C57DCA /* UIView+.swift */; };
+		379B7E37234D0ACC00C57DCA /* UNNotificationAttachment+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379B7E36234D0ACC00C57DCA /* UNNotificationAttachment+.swift */; };
+		379B7E39234D0B0100C57DCA /* UtilityExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379B7E38234D0B0100C57DCA /* UtilityExtensions.swift */; };
+		379B7E3B234D0C6B00C57DCA /* UtilityToolkit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379B7E3A234D0C6B00C57DCA /* UtilityToolkit.swift */; };
+		379B7E3D234D0C9C00C57DCA /* ScrollableInputHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379B7E3C234D0C9C00C57DCA /* ScrollableInputHandler.swift */; };
+		379B7E3F234D0D1700C57DCA /* PostComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379B7E3E234D0D1700C57DCA /* PostComposer.swift */; };
+		379B7E41234D0DAB00C57DCA /* SegueGoLeftToRight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379B7E40234D0DAB00C57DCA /* SegueGoLeftToRight.swift */; };
+		379B7E43234D0DEB00C57DCA /* UICollectionViewLeftAlignedFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379B7E42234D0DEB00C57DCA /* UICollectionViewLeftAlignedFlowLayout.swift */; };
 		B0635C55351D87CA8D61A03B /* Pods_SwiftShare.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9DB39692407B7697622B31E /* Pods_SwiftShare.framework */; };
 		E8543E4B0C31E6E06FAB3853 /* Pods_SwiftShare_SwiftShareTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7D29C57FFE9BAE92C7E6A36 /* Pods_SwiftShare_SwiftShareTests.framework */; };
 /* End PBXBuildFile section */
@@ -61,6 +77,22 @@
 		379B7E1B234D039200C57DCA /* NetworkReachabilityAlerter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkReachabilityAlerter.swift; sourceTree = "<group>"; };
 		379B7E1E234D042800C57DCA /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
 		379B7E21234D04AD00C57DCA /* SimpleBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleBaseViewController.swift; sourceTree = "<group>"; };
+		379B7E23234D062D00C57DCA /* MonthYearPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthYearPickerViewController.swift; sourceTree = "<group>"; };
+		379B7E25234D07BA00C57DCA /* SimpleTextViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleTextViewController.swift; sourceTree = "<group>"; };
+		379B7E28234D084000C57DCA /* VerticallyCenteredTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticallyCenteredTextView.swift; sourceTree = "<group>"; };
+		379B7E2A234D090D00C57DCA /* SimpleWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleWebViewController.swift; sourceTree = "<group>"; };
+		379B7E2C234D093300C57DCA /* SlideMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideMenuViewController.swift; sourceTree = "<group>"; };
+		379B7E2E234D0A1700C57DCA /* UIContentSizeCategory+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIContentSizeCategory+.swift"; sourceTree = "<group>"; };
+		379B7E30234D0A4B00C57DCA /* UIImage+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+.swift"; sourceTree = "<group>"; };
+		379B7E32234D0A7400C57DCA /* UITextField+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+.swift"; sourceTree = "<group>"; };
+		379B7E34234D0A9B00C57DCA /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
+		379B7E36234D0ACC00C57DCA /* UNNotificationAttachment+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UNNotificationAttachment+.swift"; sourceTree = "<group>"; };
+		379B7E38234D0B0100C57DCA /* UtilityExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UtilityExtensions.swift; sourceTree = "<group>"; };
+		379B7E3A234D0C6B00C57DCA /* UtilityToolkit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UtilityToolkit.swift; sourceTree = "<group>"; };
+		379B7E3C234D0C9C00C57DCA /* ScrollableInputHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollableInputHandler.swift; sourceTree = "<group>"; };
+		379B7E3E234D0D1700C57DCA /* PostComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostComposer.swift; sourceTree = "<group>"; };
+		379B7E40234D0DAB00C57DCA /* SegueGoLeftToRight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegueGoLeftToRight.swift; sourceTree = "<group>"; };
+		379B7E42234D0DEB00C57DCA /* UICollectionViewLeftAlignedFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICollectionViewLeftAlignedFlowLayout.swift; sourceTree = "<group>"; };
 		4194FBD65DDB5C3D4D46DA64 /* Pods-SwiftShare-SwiftShareTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftShare-SwiftShareTests.debug.xcconfig"; path = "Target Support Files/Pods-SwiftShare-SwiftShareTests/Pods-SwiftShare-SwiftShareTests.debug.xcconfig"; sourceTree = "<group>"; };
 		510C6783F547C8B0B02BBFF3 /* Pods-SwiftShare-SwiftShareTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftShare-SwiftShareTests.release.xcconfig"; path = "Target Support Files/Pods-SwiftShare-SwiftShareTests/Pods-SwiftShare-SwiftShareTests.release.xcconfig"; sourceTree = "<group>"; };
 		55FDE00E019DFA6CC3974219 /* Pods-SwiftShare.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftShare.debug.xcconfig"; path = "Target Support Files/Pods-SwiftShare/Pods-SwiftShare.debug.xcconfig"; sourceTree = "<group>"; };
@@ -128,6 +160,7 @@
 			isa = PBXGroup;
 			children = (
 				379B7E1D234D040E00C57DCA /* Extensions */,
+				379B7E27234D080F00C57DCA /* UI */,
 				379B7E20234D048E00C57DCA /* ViewControllers */,
 				378E3C73234C9BBB00D867A7 /* AppDataError.swift */,
 				379B7E0D234D00C700C57DCA /* ChangeType.swift */,
@@ -157,7 +190,13 @@
 		379B7E1D234D040E00C57DCA /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				379B7E2E234D0A1700C57DCA /* UIContentSizeCategory+.swift */,
+				379B7E30234D0A4B00C57DCA /* UIImage+.swift */,
+				379B7E32234D0A7400C57DCA /* UITextField+.swift */,
+				379B7E34234D0A9B00C57DCA /* UIView+.swift */,
 				379B7E1E234D042800C57DCA /* UIViewController+.swift */,
+				379B7E36234D0ACC00C57DCA /* UNNotificationAttachment+.swift */,
+				379B7E38234D0B0100C57DCA /* UtilityExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -165,9 +204,26 @@
 		379B7E20234D048E00C57DCA /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				379B7E23234D062D00C57DCA /* MonthYearPickerViewController.swift */,
 				379B7E21234D04AD00C57DCA /* SimpleBaseViewController.swift */,
+				379B7E25234D07BA00C57DCA /* SimpleTextViewController.swift */,
+				379B7E2A234D090D00C57DCA /* SimpleWebViewController.swift */,
+				379B7E2C234D093300C57DCA /* SlideMenuViewController.swift */,
 			);
 			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		379B7E27234D080F00C57DCA /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				379B7E3E234D0D1700C57DCA /* PostComposer.swift */,
+				379B7E3C234D0C9C00C57DCA /* ScrollableInputHandler.swift */,
+				379B7E40234D0DAB00C57DCA /* SegueGoLeftToRight.swift */,
+				379B7E42234D0DEB00C57DCA /* UICollectionViewLeftAlignedFlowLayout.swift */,
+				379B7E28234D084000C57DCA /* VerticallyCenteredTextView.swift */,
+				379B7E3A234D0C6B00C57DCA /* UtilityToolkit.swift */,
+			);
+			path = UI;
 			sourceTree = "<group>";
 		};
 		C4C195BE5F63F0BE23CD2358 /* Frameworks */ = {
@@ -359,18 +415,34 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				379B7E24234D062D00C57DCA /* MonthYearPickerViewController.swift in Sources */,
+				379B7E3B234D0C6B00C57DCA /* UtilityToolkit.swift in Sources */,
+				379B7E39234D0B0100C57DCA /* UtilityExtensions.swift in Sources */,
+				379B7E3F234D0D1700C57DCA /* PostComposer.swift in Sources */,
+				379B7E3D234D0C9C00C57DCA /* ScrollableInputHandler.swift in Sources */,
 				379B7E0E234D00C700C57DCA /* ChangeType.swift in Sources */,
+				379B7E2F234D0A1700C57DCA /* UIContentSizeCategory+.swift in Sources */,
 				379B7E22234D04AD00C57DCA /* SimpleBaseViewController.swift in Sources */,
+				379B7E37234D0ACC00C57DCA /* UNNotificationAttachment+.swift in Sources */,
+				379B7E2D234D093300C57DCA /* SlideMenuViewController.swift in Sources */,
 				379B7E14234D017B00C57DCA /* CacheBaseManager.swift in Sources */,
 				379B7E1C234D039200C57DCA /* NetworkReachabilityAlerter.swift in Sources */,
+				379B7E26234D07BA00C57DCA /* SimpleTextViewController.swift in Sources */,
+				379B7E41234D0DAB00C57DCA /* SegueGoLeftToRight.swift in Sources */,
 				379B7E18234D025500C57DCA /* KeychainConfiguration.swift in Sources */,
+				379B7E35234D0A9B00C57DCA /* UIView+.swift in Sources */,
 				378E3CD6234CA84500D867A7 /* UtilityLogging.swift in Sources */,
 				379B7E16234D01F100C57DCA /* KeychainPasswordItem.swift in Sources */,
+				379B7E33234D0A7400C57DCA /* UITextField+.swift in Sources */,
 				379B7E10234D00FB00C57DCA /* HTTPStatusCodes.swift in Sources */,
 				378E3C74234C9BBB00D867A7 /* AppDataError.swift in Sources */,
 				379B7E1F234D042800C57DCA /* UIViewController+.swift in Sources */,
+				379B7E29234D084000C57DCA /* VerticallyCenteredTextView.swift in Sources */,
 				379B7E1A234D036000C57DCA /* NetworkBaseManager.swift in Sources */,
+				379B7E43234D0DEB00C57DCA /* UICollectionViewLeftAlignedFlowLayout.swift in Sources */,
 				379B7E12234D014E00C57DCA /* Storage.swift in Sources */,
+				379B7E2B234D090D00C57DCA /* SimpleWebViewController.swift in Sources */,
+				379B7E31234D0A4B00C57DCA /* UIImage+.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
