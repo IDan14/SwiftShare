@@ -1,0 +1,24 @@
+PODS:
+  - Alamofire (4.9.0)
+  - RxSwift (5.0.0)
+  - SwiftyBeaver (1.8.2)
+
+DEPENDENCIES:
+  - Alamofire
+  - RxSwift
+  - SwiftyBeaver
+
+SPEC REPOS:
+  trunk:
+    - Alamofire
+    - RxSwift
+    - SwiftyBeaver
+
+SPEC CHECKSUMS:
+  Alamofire: afc3e7c6db61476cb45cdd23fed06bad03bbc321
+  RxSwift: 8b0671caa829a763bbce7271095859121cbd895f
+  SwiftyBeaver: aaf2ebd7dac2e952991f46a82ed24ad642867ae2
+
+PODFILE CHECKSUM: 619b29d0b6bd168a11936301b85214d1e26a44fe
+
+COCOAPODS: 1.8.3

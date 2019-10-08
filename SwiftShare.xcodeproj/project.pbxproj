@@ -3,13 +3,19 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		378E3C63234C9A9000D867A7 /* SwiftShare.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 378E3C59234C9A9000D867A7 /* SwiftShare.framework */; };
 		378E3C68234C9A9000D867A7 /* SwiftShareTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378E3C67234C9A9000D867A7 /* SwiftShareTests.swift */; };
 		378E3C6A234C9A9000D867A7 /* SwiftShare.h in Headers */ = {isa = PBXBuildFile; fileRef = 378E3C5C234C9A9000D867A7 /* SwiftShare.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		378E3C74234C9BBB00D867A7 /* AppDataError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378E3C73234C9BBB00D867A7 /* AppDataError.swift */; };
+		378E3CD2234C9FBB00D867A7 /* SwiftShare.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 378E3CD1234C9FBB00D867A7 /* SwiftShare.podspec */; };
+		378E3CD4234C9FC500D867A7 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 378E3CD3234C9FC500D867A7 /* Podfile */; };
+		378E3CD6234CA84500D867A7 /* UtilityLogging.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378E3CD5234CA84500D867A7 /* UtilityLogging.swift */; };
+		B0635C55351D87CA8D61A03B /* Pods_SwiftShare.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9DB39692407B7697622B31E /* Pods_SwiftShare.framework */; };
+		E8543E4B0C31E6E06FAB3853 /* Pods_SwiftShare_SwiftShareTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7D29C57FFE9BAE92C7E6A36 /* Pods_SwiftShare_SwiftShareTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +35,16 @@
 		378E3C62234C9A9000D867A7 /* SwiftShareTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftShareTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		378E3C67234C9A9000D867A7 /* SwiftShareTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftShareTests.swift; sourceTree = "<group>"; };
 		378E3C69234C9A9000D867A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		378E3C73234C9BBB00D867A7 /* AppDataError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDataError.swift; sourceTree = "<group>"; };
+		378E3CD1234C9FBB00D867A7 /* SwiftShare.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = SwiftShare.podspec; sourceTree = "<group>"; };
+		378E3CD3234C9FC500D867A7 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		378E3CD5234CA84500D867A7 /* UtilityLogging.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UtilityLogging.swift; sourceTree = "<group>"; };
+		4194FBD65DDB5C3D4D46DA64 /* Pods-SwiftShare-SwiftShareTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftShare-SwiftShareTests.debug.xcconfig"; path = "Target Support Files/Pods-SwiftShare-SwiftShareTests/Pods-SwiftShare-SwiftShareTests.debug.xcconfig"; sourceTree = "<group>"; };
+		510C6783F547C8B0B02BBFF3 /* Pods-SwiftShare-SwiftShareTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftShare-SwiftShareTests.release.xcconfig"; path = "Target Support Files/Pods-SwiftShare-SwiftShareTests/Pods-SwiftShare-SwiftShareTests.release.xcconfig"; sourceTree = "<group>"; };
+		55FDE00E019DFA6CC3974219 /* Pods-SwiftShare.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftShare.debug.xcconfig"; path = "Target Support Files/Pods-SwiftShare/Pods-SwiftShare.debug.xcconfig"; sourceTree = "<group>"; };
+		98AD91BD123CA7356D7F30B7 /* Pods-SwiftShare.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftShare.release.xcconfig"; path = "Target Support Files/Pods-SwiftShare/Pods-SwiftShare.release.xcconfig"; sourceTree = "<group>"; };
+		D7D29C57FFE9BAE92C7E6A36 /* Pods_SwiftShare_SwiftShareTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftShare_SwiftShareTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F9DB39692407B7697622B31E /* Pods_SwiftShare.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftShare.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -36,6 +52,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B0635C55351D87CA8D61A03B /* Pods_SwiftShare.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -44,18 +61,34 @@
 			buildActionMask = 2147483647;
 			files = (
 				378E3C63234C9A9000D867A7 /* SwiftShare.framework in Frameworks */,
+				E8543E4B0C31E6E06FAB3853 /* Pods_SwiftShare_SwiftShareTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		05CC3473DC2F0711748B9B35 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				55FDE00E019DFA6CC3974219 /* Pods-SwiftShare.debug.xcconfig */,
+				98AD91BD123CA7356D7F30B7 /* Pods-SwiftShare.release.xcconfig */,
+				4194FBD65DDB5C3D4D46DA64 /* Pods-SwiftShare-SwiftShareTests.debug.xcconfig */,
+				510C6783F547C8B0B02BBFF3 /* Pods-SwiftShare-SwiftShareTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		378E3C4F234C9A9000D867A7 = {
 			isa = PBXGroup;
 			children = (
+				378E3CD3234C9FC500D867A7 /* Podfile */,
+				378E3CD1234C9FBB00D867A7 /* SwiftShare.podspec */,
 				378E3C5B234C9A9000D867A7 /* SwiftShare */,
 				378E3C66234C9A9000D867A7 /* SwiftShareTests */,
 				378E3C5A234C9A9000D867A7 /* Products */,
+				05CC3473DC2F0711748B9B35 /* Pods */,
+				C4C195BE5F63F0BE23CD2358 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -71,6 +104,8 @@
 		378E3C5B234C9A9000D867A7 /* SwiftShare */ = {
 			isa = PBXGroup;
 			children = (
+				378E3C73234C9BBB00D867A7 /* AppDataError.swift */,
+				378E3CD5234CA84500D867A7 /* UtilityLogging.swift */,
 				378E3C5C234C9A9000D867A7 /* SwiftShare.h */,
 				378E3C5D234C9A9000D867A7 /* Info.plist */,
 			);
@@ -84,6 +119,15 @@
 				378E3C69234C9A9000D867A7 /* Info.plist */,
 			);
 			path = SwiftShareTests;
+			sourceTree = "<group>";
+		};
+		C4C195BE5F63F0BE23CD2358 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F9DB39692407B7697622B31E /* Pods_SwiftShare.framework */,
+				D7D29C57FFE9BAE92C7E6A36 /* Pods_SwiftShare_SwiftShareTests.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -104,6 +148,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 378E3C6D234C9A9000D867A7 /* Build configuration list for PBXNativeTarget "SwiftShare" */;
 			buildPhases = (
+				3D1096FF5D829329D33226E2 /* [CP] Check Pods Manifest.lock */,
 				378E3C54234C9A9000D867A7 /* Headers */,
 				378E3C55234C9A9000D867A7 /* Sources */,
 				378E3C56234C9A9000D867A7 /* Frameworks */,
@@ -122,9 +167,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 378E3C70234C9A9000D867A7 /* Build configuration list for PBXNativeTarget "SwiftShareTests" */;
 			buildPhases = (
+				5BDFB182858671995851C277 /* [CP] Check Pods Manifest.lock */,
 				378E3C5E234C9A9000D867A7 /* Sources */,
 				378E3C5F234C9A9000D867A7 /* Frameworks */,
 				378E3C60234C9A9000D867A7 /* Resources */,
+				A90E7930A0EB59D3844AE1E2 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -148,6 +195,7 @@
 				TargetAttributes = {
 					378E3C58234C9A9000D867A7 = {
 						CreatedOnToolsVersion = 11.1;
+						LastSwiftMigration = 1110;
 					};
 					378E3C61234C9A9000D867A7 = {
 						CreatedOnToolsVersion = 11.1;
@@ -178,6 +226,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				378E3CD4234C9FC500D867A7 /* Podfile in Resources */,
+				378E3CD2234C9FBB00D867A7 /* SwiftShare.podspec in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -190,11 +240,77 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		3D1096FF5D829329D33226E2 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SwiftShare-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5BDFB182858671995851C277 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SwiftShare-SwiftShareTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A90E7930A0EB59D3844AE1E2 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SwiftShare-SwiftShareTests/Pods-SwiftShare-SwiftShareTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SwiftShare-SwiftShareTests/Pods-SwiftShare-SwiftShareTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SwiftShare-SwiftShareTests/Pods-SwiftShare-SwiftShareTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		378E3C55234C9A9000D867A7 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				378E3CD6234CA84500D867A7 /* UtilityLogging.swift in Sources */,
+				378E3C74234C9BBB00D867A7 /* AppDataError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -339,7 +455,9 @@
 		};
 		378E3C6E234C9A9000D867A7 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 55FDE00E019DFA6CC3974219 /* Pods-SwiftShare.debug.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 5363474DPG;
@@ -348,14 +466,17 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = SwiftShare/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MARKETING_VERSION = 0.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.id.SwiftShare;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -363,7 +484,9 @@
 		};
 		378E3C6F234C9A9000D867A7 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 98AD91BD123CA7356D7F30B7 /* Pods-SwiftShare.release.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 5363474DPG;
@@ -372,11 +495,13 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = SwiftShare/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MARKETING_VERSION = 0.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.id.SwiftShare;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
@@ -387,7 +512,9 @@
 		};
 		378E3C71234C9A9000D867A7 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4194FBD65DDB5C3D4D46DA64 /* Pods-SwiftShare-SwiftShareTests.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5363474DPG;
 				INFOPLIST_FILE = SwiftShareTests/Info.plist;
@@ -405,7 +532,9 @@
 		};
 		378E3C72234C9A9000D867A7 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 510C6783F547C8B0B02BBFF3 /* Pods-SwiftShare-SwiftShareTests.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5363474DPG;
 				INFOPLIST_FILE = SwiftShareTests/Info.plist;
