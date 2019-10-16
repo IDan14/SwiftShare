@@ -129,11 +129,11 @@ open class SlideMenuViewController: UIViewController, SlideMenu {
     private func closeSideMenu(updateSize: Bool = false) {
         self.slideMenuState = .closed
         if let sideMenu = sideMenuNC {
-            sideMenu.view.frame.origin.x = -sideMenu.view.frame.width
             updateSideMenuShadow(show: false)
             if updateSize {
                 self.updateSideMenuSize()
             }
+            sideMenu.view.frame.origin.x = -sideMenu.view.frame.width
         }
     }
 

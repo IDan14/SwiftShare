@@ -67,12 +67,12 @@ source 'https://github.com/CocoaPods/Specs.git'
 * [UtilityExtensions](SwiftShare/Extensions/UtilityExtensions.swift) - extensions for String, CustomStringConvertible, CustomDebugStringConvertible, NSAttributedString, NSMutableAttributedString
 
 ### UI
-* [PostComposer](SwiftShare/PostComposer.swift) - Post messages using supported social networking services (facebook, twitter, linkedin, whatsapp) or mail. Does NOT use any 3rd party frameworks.
-* [ScrollableInputHandler](SwiftShare/ScrollableInputHandler.swift) - Helper class (for a view or view controller) for automatically scrolling text fields above on-screen keyboard.
-* [SegueGoLeftToRight](SwiftShare/SegueGoLeftToRight.swift)
-* [VerticallyCenteredTextView](SwiftShare/VerticallyCenteredTextView.swift)
-* [UICollectionViewLeftAlignedFlowLayout](SwiftShare/UICollectionViewLeftAlignedFlowLayout.swift)
-* [UtilityToolkit](SwiftShare/UtilityToolkit.swift) - init WKWebView on iOS10; list installed fonts.
+* [PostComposer](SwiftShare/UI/PostComposer.swift) - Post messages using supported social networking services (facebook, twitter, linkedin, whatsapp) or mail. Does NOT use any 3rd party frameworks.
+* [ScrollableInputHandler](SwiftShare/UI/ScrollableInputHandler.swift) - Helper class (for a view or view controller) for automatically scrolling text fields above on-screen keyboard.
+* [SegueGoLeftToRight](SwiftShare/UI/SegueGoLeftToRight.swift)
+* [VerticallyCenteredTextView](SwiftShare/UI/VerticallyCenteredTextView.swift)
+* [UICollectionViewLeftAlignedFlowLayout](SwiftShare/UI/UICollectionViewLeftAlignedFlowLayout.swift)
+* [UtilityToolkit](SwiftShare/UI/UtilityToolkit.swift) - init WKWebView on iOS10; list installed fonts.
 
 ### ViewControllers
 * [MonthYearPickerViewController](SwiftShare/ViewControllers/MonthYearPickerViewController.swift) - Date picker variant without day of the month.
