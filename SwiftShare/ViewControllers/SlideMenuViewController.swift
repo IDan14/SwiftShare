@@ -35,19 +35,6 @@ open class SlideMenuViewController: UIViewController, SlideMenu {
         func isAnimating() -> Bool {
             return (self == .animateOpen || self == .animateClose)
         }
-
-        mutating func nextState() {
-            switch self {
-            case .closed, .dragOpen:
-                self = .animateOpen
-            case .opened, .dragClose:
-                self = .animateClose
-            case .animateOpen:
-                self = .opened
-            case .animateClose:
-                self = .closed
-            }
-        }
     }
     open var slideMenuState = SlideState.closed {
         didSet {
@@ -72,13 +59,33 @@ open class SlideMenuViewController: UIViewController, SlideMenu {
 
     override open func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
+        guard let sideMenu = sideMenuNC else { return }
         updateSideMenuSize()
+        if slideMenuState == .animateOpen {
+            slideMenuState = .dragOpen
+            animateSideMenuSlide()
+        } else if slideMenuState == .animateClose {
+            slideMenuState = .dragClose
+            animateSideMenuSlide()
+        } else if slideMenuState == .opened {
+            if (slideSide == .left && sideMenu.view.frame.origin.x != 0) {
+                sideMenu.view.frame.origin.x = 0
+            } else if (slideSide == .right && sideMenu.view.frame.origin.x != self.view.frame.width - sideMenu.view.frame.width) {
+                sideMenu.view.frame.origin.x = self.view.frame.width - sideMenu.view.frame.width
+            }
+        } else if slideMenuState == .closed {
+            if (slideSide == .left && sideMenu.view.frame.origin.x != -sideMenu.view.frame.width) {
+                sideMenu.view.frame.origin.x = -sideMenu.view.frame.width
+            } else if (slideSide == .right && sideMenu.view.frame.origin.x != self.view.frame.width) {
+                sideMenu.view.frame.origin.x = self.view.frame.width
+            }
+        }
     }
 
     open func checkOrAddSideMenuViewController() {
         if sideMenuNC == nil, let sideMenu = try? createSideMenuNavigationController() {
             sideMenuNC = sideMenu
-            closeSideMenu(updateSize: true)
+            closeSideMenu()
             self.view.addSubview(sideMenu.view)
             addChild(sideMenu)
             sideMenu.didMove(toParent: self)
@@ -100,9 +107,13 @@ open class SlideMenuViewController: UIViewController, SlideMenu {
         }
     }
 
-    private func updateSideMenuShadow(show: Bool) {
-        if self.slideMenuState == .closed, let sideMenu = sideMenuNC {
-            sideMenu.view.layer.shadowOpacity = show ? 0.5 : 0.0
+    private func updateSideMenuShadow() {
+        if let sideMenu = sideMenuNC {
+            if slideMenuState == .closed {
+                sideMenu.view.layer.shadowOpacity = 0.0
+            } else {
+                sideMenu.view.layer.shadowOpacity = 0.5
+            }
         }
     }
 
@@ -114,37 +125,49 @@ open class SlideMenuViewController: UIViewController, SlideMenu {
         } else if slideMenuState == .dragOpen {
             if (slideSide == .left && sideMenu.view.frame.origin.x == 0)
                 || (slideSide == .right && sideMenu.view.frame.origin.x == self.view.frame.width - sideMenu.view.frame.width) {
-                self.slideMenuState = .opened
+                slideMenuState = .opened
                 return
+            } else {
+                slideMenuState = .animateOpen
             }
         } else if slideMenuState == .dragClose {
             if (slideSide == .left && sideMenu.view.frame.origin.x == -sideMenu.view.frame.width)
                 || (slideSide == .right && sideMenu.view.frame.origin.x == self.view.frame.width) {
-                self.slideMenuState = .closed
+                slideMenuState = .closed
+                updateSideMenuShadow()
                 return
+            } else {
+                slideMenuState = .animateClose
             }
+        } else if slideMenuState == .opened {
+            slideMenuState = .animateClose
+        } else if slideMenuState == .closed {
+            slideMenuState = .animateOpen
         }
-        updateSideMenuShadow(show: true)
-        self.slideMenuState.nextState()
-        UIView.animate(withDuration: sideMenuSlideDuration, animations: {
+        updateSideMenuShadow()
+        UIView.animate(withDuration: sideMenuSlideDuration, delay: 0, options: [.allowUserInteraction], animations: {
             if self.slideMenuState == .animateOpen {
                 sideMenu.view.frame.origin.x = (self.slideSide == .left) ? 0 : self.view.frame.width - sideMenu.view.frame.width
             } else if self.slideMenuState == .animateClose {
                 sideMenu.view.frame.origin.x = (self.slideSide == .left) ? -sideMenu.view.frame.width : self.view.frame.width
             }
-        }) { _ in
-            self.slideMenuState.nextState()
-            self.updateSideMenuShadow(show: false)
+        }) { (completed) in
+            if self.slideMenuState == .animateOpen {
+                self.slideMenuState = .opened
+            } else if self.slideMenuState == .animateClose {
+                self.slideMenuState = .closed
+            }
+            if completed {
+                self.updateSideMenuShadow()
+            }
         }
     }
 
-    private func closeSideMenu(updateSize: Bool = false) {
+    private func closeSideMenu() {
         self.slideMenuState = .closed
         if let sideMenu = sideMenuNC {
-            updateSideMenuShadow(show: false)
-            if updateSize {
-                self.updateSideMenuSize()
-            }
+            updateSideMenuShadow()
+            updateSideMenuSize()
             switch slideSide {
             case .left:
                 sideMenu.view.frame.origin.x = -sideMenu.view.frame.width
@@ -162,12 +185,20 @@ open class SlideMenuViewController: UIViewController, SlideMenu {
         case .began:
             checkOrAddSideMenuViewController()
             checkSideMenuTouched(recognizer.location(in: self.view))
-            updateSideMenuShadow(show: isTouchingSideMenu)
-        case .ended, .cancelled:
-            if isTouchingSideMenu || slideMenuState != .closed {
-                animateSideMenuSlide()
+            sideMenuNC?.view.layer.removeAllAnimations()
+            if isTouchingSideMenu {
+                if slideMenuState == .opened {
+                    slideMenuState = .dragClose
+                } else if slideMenuState == .closed {
+                    slideMenuState = .dragOpen
+                }
+                updateSideMenuShadow()
             }
-            self.isTouchingSideMenu = false
+        case .ended, .cancelled:
+            if isTouchingSideMenu {
+                animateSideMenuSlide()
+                isTouchingSideMenu = false
+            }
         case .changed:
             guard let sideMenu = sideMenuNC, isTouchingSideMenu else {
                 return
@@ -195,10 +226,16 @@ open class SlideMenuViewController: UIViewController, SlideMenu {
     }
 
     private func setSlideMenuDragState(_ velocity: CGFloat) {
+        let newState: SlideState
         if velocity > 0 {
-            self.slideMenuState = (slideSide == .left) ? .dragOpen : .dragClose
+            newState = (slideSide == .left) ? .dragOpen : .dragClose
         } else if velocity < 0 {
-            self.slideMenuState = (slideSide == .left) ? .dragClose : .dragOpen
+            newState = (slideSide == .left) ? .dragClose : .dragOpen
+        } else {
+            return
+        }
+        if slideMenuState != newState {
+            slideMenuState = newState
         }
     }
 
@@ -225,6 +262,7 @@ open class SlideMenuViewController: UIViewController, SlideMenu {
     }
 
     open func didSetSlideMenuState() {
+//        SwiftyBeaver.verbose("didSetSlideMenuState \(slideMenuState)")
         if let sideMenu = sideMenuNC, slideMenuState == .closed {
             if sideMenu.viewControllers.count > 1 {
                 sideMenu.popToRootViewController(animated: false)
