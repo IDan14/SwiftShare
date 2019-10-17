@@ -79,7 +79,7 @@ source 'https://github.com/CocoaPods/Specs.git'
 * [SimpleBaseViewController](SwiftShare/ViewControllers/SimpleBaseViewController.swift) - Base class for a view controller showing a main view and a row of buttons. Used for programmatically created modals / pop-ups.
 * [SimpleTextViewController](SwiftShare/ViewControllers/SimpleTextViewController.swift) - Extends [SimpleBaseViewController](SwiftShare/ViewControllers/SimpleBaseViewController.swift) and uses a TextView as main view.
 * [SimpleWebViewController](SwiftShare/ViewControllers/SimpleWebViewController.swift) - Extends [SimpleBaseViewController](SwiftShare/ViewControllers/SimpleBaseViewController.swift) and uses a WKWebView as main view.
-* [SlideMenuViewController](SwiftShare/ViewControllers/SlideMenuViewController.swift) - Base class for a sliding menu (left-side hamburger menu).
+* [SlideMenuViewController](SwiftShare/ViewControllers/SlideMenuViewController.swift) - Base class for a sliding menu (left or right side hamburger menu).
 
 ### App Version Checker
 * [AppVersionChecker](SwiftShare/AppVersionChecker/AppVersionChecker.swift) - determines version status (see documentation for method check).
