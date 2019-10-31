@@ -10,7 +10,7 @@ import UIKit
 import SwiftyBeaver
 
 public protocol SlideMenu {
-    func createMainViewController() throws -> UIViewController
+    func createCenterViewController() throws -> UIViewController
     func createSideMenuNavigationController() throws -> UINavigationController
     func didSetSlideMenuState()
 }
@@ -52,7 +52,9 @@ open class SlideMenuViewController: UIViewController, SlideMenu {
 
     override open func viewDidLoad() {
         super.viewDidLoad()
-        addMainViewController()
+        if let controller = try? createCenterViewController() {
+            addCenterViewController(controller)
+        }
         let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(handlePanGesture(_:)))
         self.view.addGestureRecognizer(panGestureRecognizer)
     }
@@ -92,13 +94,21 @@ open class SlideMenuViewController: UIViewController, SlideMenu {
         }
     }
 
-    private func addMainViewController() {
-        if let main = try? createMainViewController() {
-            view.addSubview(main.view)
-            addChild(main)
-            main.didMove(toParent: self)
-            mainVC = main
+    private func addCenterViewController(_ controller: UIViewController) {
+        view.addSubview(controller.view)
+        view.sendSubviewToBack(controller.view)
+        addChild(controller)
+        controller.didMove(toParent: self)
+        mainVC = controller
+    }
+
+    open func setCenterViewController(_ controller: UIViewController) {
+        if let main = mainVC {
+            main.view.removeFromSuperview()
+            main.removeFromParent()
+            mainVC = nil
         }
+        addCenterViewController(controller)
     }
 
     private func updateSideMenuSize() {
@@ -253,7 +263,7 @@ open class SlideMenuViewController: UIViewController, SlideMenu {
 
     // MARK: - SlideMenu
 
-    open func createMainViewController() throws -> UIViewController {
+    open func createCenterViewController() throws -> UIViewController {
         throw AppDataError.configurationError(reason: "Method must be overriden")
     }
 
