@@ -27,7 +27,7 @@ public class NetworkReachabilityAlerter {
                 }
             }
 
-            reachabilityManager.listener = { (status) in
+            reachabilityManager.startListening { (status) in
                 switch status {
                 case .notReachable:
                     SwiftyBeaver.warning("Network status in not reachable")
@@ -40,7 +40,6 @@ public class NetworkReachabilityAlerter {
                     SwiftyBeaver.warning("Network status in unknown")
                 }
             }
-            reachabilityManager.startListening()
         } else {
             SwiftyBeaver.error("Network reachability manager initialization failed")
             return nil

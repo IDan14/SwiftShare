@@ -25,7 +25,7 @@ open class NetworkBaseManager {
 
     open func call(_ request: DataRequest, queue: DispatchQueue? = nil) -> Completable {
         return Completable.create(subscribe: { (event) -> Disposable in
-            request.validate().responseData(queue: queue, completionHandler: { [weak self] (response) in
+            request.validate().responseData(queue: queue ?? .main, completionHandler: { [weak self] (response) in
                 guard let self = self else { return }
                 NetworkBaseManager.verboseLog(request: request, response: response)
                 switch response.result {
@@ -46,7 +46,7 @@ open class NetworkBaseManager {
 
     open func call<T>(_ request: DataRequest, type: T.Type, queue: DispatchQueue? = nil) -> Single<T> where T: Decodable {
         return Single.create(subscribe: { (event) -> Disposable in
-            request.validate().responseData(queue: queue, completionHandler: { [weak self] (response) in
+            request.validate().responseData(queue: queue ?? .main, completionHandler: { [weak self] (response) in
                 guard let self = self else { return }
                 NetworkBaseManager.verboseLog(request: request, response: response)
                 switch response.result {
@@ -101,7 +101,7 @@ open class NetworkBaseManager {
                            filename: String? = nil,
                            queue: DispatchQueue? = nil) -> Single<URL> {
         return Single.create(subscribe: { (event) -> Disposable in
-            let destination: DownloadRequest.DownloadFileDestination = { temporaryURL, response in
+            let destination: DownloadRequest.Destination = { temporaryURL, response in
                 let directoryURLs = FileManager.default.urls(for: toDirectory, in: .userDomainMask)
                 if directoryURLs.isEmpty {
                     return (temporaryURL, [])
@@ -114,8 +114,8 @@ open class NetworkBaseManager {
                     return (destinationURL, [.removePreviousFile, .createIntermediateDirectories])
                 }
             }
-            let request = Alamofire.download(sourceUrl, to: destination)
-            request.validate().responseData(queue: queue, completionHandler: { [weak self] (response) in
+            let request = AF.download(sourceUrl, to: destination)
+            request.validate().responseData(queue: queue ?? .main, completionHandler: { [weak self] (response) in
 //                SwiftyBeaver.verbose("REQUEST: \(request.debugDescription)")
                 SwiftyBeaver.verbose("RESPONSE: \(response.debugDescription)")
                 self?.handleDownloadResponse(response, request: request, event: event)
@@ -126,11 +126,11 @@ open class NetworkBaseManager {
         })
     }
 
-    private func handleDownloadResponse(_ response: DownloadResponse<Data>, request: DownloadRequest, event: (SingleEvent<URL>) -> Void) {
+    private func handleDownloadResponse(_ response: AFDownloadResponse<Data>, request: DownloadRequest, event: (SingleEvent<URL>) -> Void) {
         switch response.result {
         case .success:
             NetworkBaseManager.debugLog(request: request)
-            if let destinationUrl = response.destinationURL {
+            if let destinationUrl = response.fileURL {
                 event(.success(destinationUrl))
             } else {
                 let appDataError = AppDataError.noData(reason: "No destination URL")
@@ -146,8 +146,8 @@ open class NetworkBaseManager {
         }
     }
 
-    public static func verboseLog(request: DataRequest, response: DataResponse<Data>) {
-        SwiftyBeaver.verbose("REQUEST: \(request.debugDescription)")
+    public static func verboseLog(request: DataRequest, response: AFDataResponse<Data>) {
+        SwiftyBeaver.verbose("REQUEST: \(request.description)")
         if let data = request.request?.httpBody {
             SwiftyBeaver.verbose("REQUEST BODY: \(String(data: data, encoding: .utf8) ?? "")")
         }
