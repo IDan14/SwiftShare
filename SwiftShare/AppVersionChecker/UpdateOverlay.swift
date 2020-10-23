@@ -26,13 +26,13 @@ open class UpdateOverlay {
         let updateUrl: String?
         let allowCancel: Bool
         switch status {
-        case .belowMinimum(let info):
-            message = info.message
-            updateUrl = info.updateUrl
+        case .belowMinimum(message: let msg, updateUrl: let url, latestVersion: _):
+            message = msg
+            updateUrl = url
             allowCancel = false
-        case .older(let info):
-            message = info.message
-            updateUrl = info.updateUrl
+        case .older(message: let msg, updateUrl: let url, latestVersion: _):
+            message = msg
+            updateUrl = url
             allowCancel = true
         case .skipped, .newer, .upToDate:
             SwiftyBeaver.info("Application up to date, newer or version marked as skipped")

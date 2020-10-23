@@ -82,7 +82,7 @@ open class PostComposer {
                                         presenter: UIViewController,
                                         event: @escaping ((SingleEvent<Bool>) -> Void)) {
         if let serviceType = self.getSLServiceTypeFor(type) {
-            if SLComposeViewController.isAvailable(forServiceType: SLServiceTypeLinkedIn) {
+            if SLComposeViewController.isAvailable(forServiceType: SLServiceTypeLinkedIn) { // FIXME: Need to check & update implementation
                 if let composeVC = SLComposeViewController(forServiceType: serviceType) {
                     composeVC.setInitialText(text)
                     if let urlString = url?.addingPercentEncoding(withAllowedCharacters: urlAllowedCharset),
