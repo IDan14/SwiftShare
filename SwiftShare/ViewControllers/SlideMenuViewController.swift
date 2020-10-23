@@ -70,15 +70,15 @@ open class SlideMenuViewController: UIViewController, SlideMenu {
             slideMenuState = .dragClose
             animateSideMenuSlide()
         } else if slideMenuState == .opened {
-            if (slideSide == .left && sideMenu.view.frame.origin.x != 0) {
+            if slideSide == .left && sideMenu.view.frame.origin.x != 0 {
                 sideMenu.view.frame.origin.x = 0
-            } else if (slideSide == .right && sideMenu.view.frame.origin.x != self.view.frame.width - sideMenu.view.frame.width) {
+            } else if slideSide == .right && sideMenu.view.frame.origin.x != self.view.frame.width - sideMenu.view.frame.width {
                 sideMenu.view.frame.origin.x = self.view.frame.width - sideMenu.view.frame.width
             }
         } else if slideMenuState == .closed {
-            if (slideSide == .left && sideMenu.view.frame.origin.x != -sideMenu.view.frame.width) {
+            if slideSide == .left && sideMenu.view.frame.origin.x != -sideMenu.view.frame.width {
                 sideMenu.view.frame.origin.x = -sideMenu.view.frame.width
-            } else if (slideSide == .right && sideMenu.view.frame.origin.x != self.view.frame.width) {
+            } else if slideSide == .right && sideMenu.view.frame.origin.x != self.view.frame.width {
                 sideMenu.view.frame.origin.x = self.view.frame.width
             }
         }
@@ -155,13 +155,13 @@ open class SlideMenuViewController: UIViewController, SlideMenu {
             slideMenuState = .animateOpen
         }
         updateSideMenuShadow()
-        UIView.animate(withDuration: sideMenuSlideDuration, delay: 0, options: [.allowUserInteraction], animations: {
+        UIView.animate(withDuration: sideMenuSlideDuration, delay: 0, options: [.allowUserInteraction]) {
             if self.slideMenuState == .animateOpen {
                 sideMenu.view.frame.origin.x = (self.slideSide == .left) ? 0 : self.view.frame.width - sideMenu.view.frame.width
             } else if self.slideMenuState == .animateClose {
                 sideMenu.view.frame.origin.x = (self.slideSide == .left) ? -sideMenu.view.frame.width : self.view.frame.width
             }
-        }) { (completed) in
+        } completion: { (completed) in
             if self.slideMenuState == .animateOpen {
                 self.slideMenuState = .opened
             } else if self.slideMenuState == .animateClose {
@@ -215,23 +215,27 @@ open class SlideMenuViewController: UIViewController, SlideMenu {
             }
             setSlideMenuDragState(horizontalVelocity)
             sideMenu.view.frame.origin.x += recognizer.translation(in: sideMenu.view).x
-            switch slideSide {
-            case .left:
-                if sideMenu.view.frame.origin.x > 0 {
-                    sideMenu.view.frame.origin.x = 0
-                } else if sideMenu.view.frame.origin.x < -sideMenu.view.frame.width {
-                    sideMenu.view.frame.origin.x = -sideMenu.view.frame.width
-                }
-            case .right:
-                if sideMenu.view.frame.origin.x > self.view.frame.width {
-                    sideMenu.view.frame.origin.x = self.view.frame.width
-                } else if sideMenu.view.frame.origin.x < self.view.frame.width - sideMenu.view.frame.width {
-                    sideMenu.view.frame.origin.x = self.view.frame.width - sideMenu.view.frame.width
-                }
-            }
+            handlePanChangedSlideSide(sideMenu)
             recognizer.setTranslation(CGPoint.zero, in: view)
         default:
             SwiftyBeaver.warning("other recognizer state")
+        }
+    }
+
+    private func handlePanChangedSlideSide(_ sideMenu: UINavigationController) {
+        switch slideSide {
+        case .left:
+            if sideMenu.view.frame.origin.x > 0 {
+                sideMenu.view.frame.origin.x = 0
+            } else if sideMenu.view.frame.origin.x < -sideMenu.view.frame.width {
+                sideMenu.view.frame.origin.x = -sideMenu.view.frame.width
+            }
+        case .right:
+            if sideMenu.view.frame.origin.x > self.view.frame.width {
+                sideMenu.view.frame.origin.x = self.view.frame.width
+            } else if sideMenu.view.frame.origin.x < self.view.frame.width - sideMenu.view.frame.width {
+                sideMenu.view.frame.origin.x = self.view.frame.width - sideMenu.view.frame.width
+            }
         }
     }
 

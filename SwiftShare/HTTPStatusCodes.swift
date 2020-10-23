@@ -10,7 +10,7 @@ import Foundation
 
 public enum HTTPStatusCodes: Int {
     // 2xx Success
-    case ok = 200
+    case ok = 200 // swiftlint:disable:this identifier_name
     case created = 201
     case noContent = 204
     // 4xx Client errors
