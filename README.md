@@ -1,13 +1,13 @@
 # SwiftShare - Cocoa Touch Framework & CocoaPod
-[![Podspec](https://img.shields.io/badge/private%20pod-0.1.2-blueviolet.svg?logo=gitlab)](SwiftShare.podspec)
-[![Platform](https://img.shields.io/badge/platform-iOS%2010%2B-black.svg)](SwiftShare.podspec)
-[![Language](https://img.shields.io/badge/language-Swift%205.1-orange.svg?logo=swift)](https://swift.org/)
-[![Xcode](https://img.shields.io/badge/Xcode-11%2B-blue.svg?logo=xcode)](https://developer.apple.com/xcode)
+[![Podspec](https://img.shields.io/badge/private%20pod-0.2.0-blueviolet.svg?logo=gitlab)](SwiftShare.podspec)
+[![Platform](https://img.shields.io/badge/platform-iOS%2012%2B-black.svg)](SwiftShare.podspec)
+[![Language](https://img.shields.io/badge/language-Swift%205.3-orange.svg?logo=swift)](https://swift.org/)
+[![Xcode](https://img.shields.io/badge/Xcode-12%2B-blue.svg?logo=xcode)](https://developer.apple.com/xcode)
 
 ## Requirements:
-* Xcode 11+
-* Swift 5.1+
-* CocoaPods 1.8+
+* Xcode 12+
+* Swift 5.3+
+* CocoaPods 1.10+
 
 Project uses following libraries (as cocoa pods):
 * [RxSwift](https://github.com/ReactiveX/RxSwift)
@@ -23,7 +23,7 @@ pod 'SwiftShare', :path => '~/SwiftShare'
 ```
 * git repository address:
 ```ruby
-pod 'SwiftShare', :git => 'https://.../SwiftShare.git', :tag => '0.1.2'
+pod 'SwiftShare', :git => 'https://.../SwiftShare.git', :tag => '0.2.0'
 ```
 * private specs repository:
 ```ruby
@@ -31,7 +31,7 @@ source 'https://.../specs-repo.git'
 source 'https://github.com/CocoaPods/Specs.git'
 
     target '<YOUR_APP>' do
-        pod 'SwiftShare', '~> 0.1.2'
+        pod 'SwiftShare', '~> 0.2.0'
     end
 ```
 

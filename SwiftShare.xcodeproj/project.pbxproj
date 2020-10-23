@@ -672,7 +672,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 4194FBD65DDB5C3D4D46DA64 /* Pods-SwiftShare-SwiftShareTests.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5363474DPG;
 				INFOPLIST_FILE = SwiftShareTests/Info.plist;
@@ -692,7 +692,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 510C6783F547C8B0B02BBFF3 /* Pods-SwiftShare-SwiftShareTests.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5363474DPG;
 				INFOPLIST_FILE = SwiftShareTests/Info.plist;
