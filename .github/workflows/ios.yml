@@ -14,10 +14,14 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+      - name: Show versions
+        run: |
+          xcodebuild -version
+          pod --version
       - name: Install Dependencies
         run: |
-        cd SwiftShare
-        pod install --repo-update
+          cd SwiftShare
+          pod install --repo-update
       - name: Set Default Scheme
         run: |
           scheme_list=$(xcodebuild -list -json | tr -d "\n")
