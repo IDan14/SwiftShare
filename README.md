@@ -67,6 +67,7 @@ source 'https://github.com/CocoaPods/Specs.git'
 * [UtilityExtensions](SwiftShare/Extensions/UtilityExtensions.swift) - extensions for String, CustomStringConvertible, CustomDebugStringConvertible, NSAttributedString, NSMutableAttributedString
 
 ### UI
+* [HUDView](SwiftShare/UI/HUDView.swift) - Simple view to display a text and / or image in a rounded corner rectangle in the center of another view
 * [PostComposer](SwiftShare/UI/PostComposer.swift) - Post messages using supported social networking services (facebook, twitter, linkedin, whatsapp) or mail. Does NOT use any 3rd party frameworks.
 * [ScrollableInputHandler](SwiftShare/UI/ScrollableInputHandler.swift) - Helper class (for a view or view controller) for automatically scrolling text fields above on-screen keyboard.
 * [SegueGoLeftToRight](SwiftShare/UI/SegueGoLeftToRight.swift)

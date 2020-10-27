@@ -45,6 +45,7 @@
 		379B7E48234D0F2000C57DCA /* UpdateOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379B7E47234D0F2000C57DCA /* UpdateOverlay.swift */; };
 		379B7E4A234D0F5900C57DCA /* AppVersionChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379B7E49234D0F5900C57DCA /* AppVersionChecker.swift */; };
 		379B7E4C234D0F7700C57DCA /* VersionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379B7E4B234D0F7700C57DCA /* VersionData.swift */; };
+		37F4BE182547BFD10000C647 /* HUDView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37F4BE172547BFD10000C647 /* HUDView.swift */; };
 		B0635C55351D87CA8D61A03B /* Pods_SwiftShare.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9DB39692407B7697622B31E /* Pods_SwiftShare.framework */; };
 		E8543E4B0C31E6E06FAB3853 /* Pods_SwiftShare_SwiftShareTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7D29C57FFE9BAE92C7E6A36 /* Pods_SwiftShare_SwiftShareTests.framework */; };
 /* End PBXBuildFile section */
@@ -101,6 +102,7 @@
 		379B7E47234D0F2000C57DCA /* UpdateOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateOverlay.swift; sourceTree = "<group>"; };
 		379B7E49234D0F5900C57DCA /* AppVersionChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppVersionChecker.swift; sourceTree = "<group>"; };
 		379B7E4B234D0F7700C57DCA /* VersionData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VersionData.swift; sourceTree = "<group>"; };
+		37F4BE172547BFD10000C647 /* HUDView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HUDView.swift; sourceTree = "<group>"; };
 		4194FBD65DDB5C3D4D46DA64 /* Pods-SwiftShare-SwiftShareTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftShare-SwiftShareTests.debug.xcconfig"; path = "Target Support Files/Pods-SwiftShare-SwiftShareTests/Pods-SwiftShare-SwiftShareTests.debug.xcconfig"; sourceTree = "<group>"; };
 		510C6783F547C8B0B02BBFF3 /* Pods-SwiftShare-SwiftShareTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftShare-SwiftShareTests.release.xcconfig"; path = "Target Support Files/Pods-SwiftShare-SwiftShareTests/Pods-SwiftShare-SwiftShareTests.release.xcconfig"; sourceTree = "<group>"; };
 		55FDE00E019DFA6CC3974219 /* Pods-SwiftShare.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftShare.debug.xcconfig"; path = "Target Support Files/Pods-SwiftShare/Pods-SwiftShare.debug.xcconfig"; sourceTree = "<group>"; };
@@ -225,6 +227,7 @@
 		379B7E27234D080F00C57DCA /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				37F4BE172547BFD10000C647 /* HUDView.swift */,
 				379B7E3E234D0D1700C57DCA /* PostComposer.swift */,
 				379B7E3C234D0C9C00C57DCA /* ScrollableInputHandler.swift */,
 				379B7E40234D0DAB00C57DCA /* SegueGoLeftToRight.swift */,
@@ -459,6 +462,7 @@
 				379B7E39234D0B0100C57DCA /* UtilityExtensions.swift in Sources */,
 				379B7E3F234D0D1700C57DCA /* PostComposer.swift in Sources */,
 				379B7E3D234D0C9C00C57DCA /* ScrollableInputHandler.swift in Sources */,
+				37F4BE182547BFD10000C647 /* HUDView.swift in Sources */,
 				379B7E0E234D00C700C57DCA /* ChangeType.swift in Sources */,
 				379B7E2F234D0A1700C57DCA /* UIContentSizeCategory+.swift in Sources */,
 				379B7E22234D04AD00C57DCA /* SimpleBaseViewController.swift in Sources */,
