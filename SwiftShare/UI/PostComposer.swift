@@ -82,41 +82,31 @@ open class PostComposer {
                                         presenter: UIViewController,
                                         event: @escaping ((SingleEvent<Bool>) -> Void)) {
         if let serviceType = self.getSLServiceTypeFor(type) {
-            if SLComposeViewController.isAvailable(forServiceType: SLServiceTypeLinkedIn) { // FIXME: Need to check & update implementation
-                if let composeVC = SLComposeViewController(forServiceType: serviceType) {
-                    composeVC.setInitialText(text)
-                    if let urlString = url?.addingPercentEncoding(withAllowedCharacters: urlAllowedCharset),
-                        let url = URL(string: urlString) {
-                        composeVC.add(url)
-                    }
-                    composeVC.completionHandler = { result in
-                        switch result {
-                        case .done:
-                            event(.success(true))
-                        case .cancelled:
-                            if ProcessInfo().operatingSystemVersion.majorVersion >= 11 {
-                                /* On iOS 11+ Facebook & Twitter app options have been removed from the Settings app.
-                                 Added check using custom URL scheme to verify if apps are installed or not. */
-                                if (type == .facebook), let url = URL(string: "fb://"), !UIApplication.shared.canOpenURL(url) {
-                                    event(.error(AppDataError.unsupportedOperation(reason: "Cannot open app for share type: \(type)")))
-                                } else if (type == .twitter), let url = URL(string: "twitter://"), !UIApplication.shared.canOpenURL(url) {
-                                    event(.error(AppDataError.unsupportedOperation(reason: "Cannot open app for share type: \(type)")))
-                                } else {
-                                    event(.success(false))
-                                }
-                            } else {
-                                event(.success(false))
-                            }
-                        @unknown default:
-                            event(.error(AppDataError.unknownError(reason: "Unknown result")))
-                        }
-                    }
-                    presenter.present(composeVC, animated: true)
-                } else {
-                    event(.error(AppDataError.unknownError(reason: "Failed to create composer for social networking service type: \(type)")))
+            if let composeVC = SLComposeViewController(forServiceType: serviceType) {
+                composeVC.setInitialText(text)
+                if let urlString = url?.addingPercentEncoding(withAllowedCharacters: urlAllowedCharset),
+                   let url = URL(string: urlString) {
+                    composeVC.add(url)
                 }
+                composeVC.completionHandler = { result in
+                    switch result {
+                    case .done:
+                        event(.success(true))
+                    case .cancelled:
+                        if (type == .facebook), let url = URL(string: "fb://"), !UIApplication.shared.canOpenURL(url) {
+                            event(.error(AppDataError.unsupportedOperation(reason: "Cannot open app for share type: \(type)")))
+                        } else if (type == .twitter), let url = URL(string: "twitter://"), !UIApplication.shared.canOpenURL(url) {
+                            event(.error(AppDataError.unsupportedOperation(reason: "Cannot open app for share type: \(type)")))
+                        } else {
+                            event(.success(false))
+                        }
+                    @unknown default:
+                        event(.error(AppDataError.unknownError(reason: "Unknown result")))
+                    }
+                }
+                presenter.present(composeVC, animated: true)
             } else {
-                event(.error(AppDataError.unsupportedOperation(reason: "Social networking service not available for type: \(type)")))
+                event(.error(AppDataError.unknownError(reason: "Failed to create composer for social networking service type: \(type)")))
             }
         } else {
             event(.error(AppDataError.unknownError(reason: "No social networking service for type: \(type)")))
