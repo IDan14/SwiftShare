@@ -13,49 +13,42 @@ import SwiftyBeaver
 public class NetworkReachabilityAlerter {
 
     private let networkReachabilityManager: Alamofire.NetworkReachabilityManager
-    private var alertPresenter: UIViewController?
 
-    public init?(alertPresenter: UIViewController?) {
-        if let reachabilityManager = Alamofire.NetworkReachabilityManager() {
-            self.networkReachabilityManager = reachabilityManager
-            self.alertPresenter = alertPresenter
-
-            if !reachabilityManager.isReachable {
-                SwiftyBeaver.warning("Network status in not reachable (on start)")
-                if let presenter = alertPresenter {
-                    self.displayNotReachableAlert(presenter)
-                }
-            }
-
-            reachabilityManager.startListening { (status) in
-                switch status {
-                case .notReachable:
-                    SwiftyBeaver.warning("Network status in not reachable")
-                    if let presenter = alertPresenter {
-                        self.displayNotReachableAlert(presenter)
-                    }
-                case .reachable(let connectionType):
-                    SwiftyBeaver.info("Network status is reachable, connection type: \(connectionType)")
-                case .unknown:
-                    SwiftyBeaver.warning("Network status in unknown")
-                }
-            }
-        } else {
+    public init?(showOnStart: Bool) {
+        guard let reachabilityManager = Alamofire.NetworkReachabilityManager() else {
             SwiftyBeaver.error("Network reachability manager initialization failed")
             return nil
         }
-    }
+        networkReachabilityManager = reachabilityManager
+        if !reachabilityManager.isReachable {
+            if showOnStart {
+                SwiftyBeaver.warning("Network status in not reachable (on start)")
+                displayNotReachableAlert()
+            }
+        }
 
-    public func setAlertPresenter(alertPresenter: UIViewController?) {
-        self.alertPresenter = alertPresenter
+        reachabilityManager.startListening { [weak self] (status) in
+            switch status {
+            case .notReachable:
+                SwiftyBeaver.warning("Network status in not reachable")
+                self?.displayNotReachableAlert()
+            case .reachable(let connectionType):
+                SwiftyBeaver.info("Network status is reachable, connection type: \(connectionType)")
+            case .unknown:
+                SwiftyBeaver.warning("Network status in unknown")
+            }
+        }
     }
 
     public func isReachable() -> Bool {
-        return self.networkReachabilityManager.isReachable
+        return networkReachabilityManager.isReachable
     }
 
-    private func displayNotReachableAlert(_ presenter: UIViewController) {
-        presenter.displayAlert(localizedMessage: NSLocalizedString("Alert Message - Not reachable", comment: "Network status in not reachable"),
-                               localizedTitle: NSLocalizedString("Alert Title - Not reachable", comment: "No connection"))
+    private func displayNotReachableAlert() {
+        guard let rootViewController = UIApplication.shared.windows.first?.rootViewController else {
+            return
+        }
+        rootViewController.displayAlert(localizedMessage: NSLocalizedString("Alert Message - Not reachable", comment: "Network status in not reachable"),
+                                        localizedTitle: NSLocalizedString("Alert Title - Not reachable", comment: "No connection"))
     }
 }
