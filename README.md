@@ -1,5 +1,5 @@
 # SwiftShare - Cocoa Touch Framework & CocoaPod
-[![Podspec](https://img.shields.io/badge/private%20pod-0.2.0-blueviolet.svg?logo=gitlab)](SwiftShare.podspec)
+[![Podspec](https://img.shields.io/badge/private%20pod-0.3.0-blueviolet.svg?logo=gitlab)](SwiftShare.podspec)
 [![Platform](https://img.shields.io/badge/platform-iOS%2012%2B-black.svg)](SwiftShare.podspec)
 [![Language](https://img.shields.io/badge/language-Swift%205.3-orange.svg?logo=swift)](https://swift.org/)
 [![Xcode](https://img.shields.io/badge/Xcode-12%2B-blue.svg?logo=xcode)](https://developer.apple.com/xcode)
@@ -19,11 +19,11 @@ Project uses following libraries (as cocoa pods):
 To add it in your Xcode project using [CocoaPods](https://cocoapods.org), specify it in you Podfile. You may use:
 * local path:
 ```ruby
-pod 'SwiftShare', :path => '~/SwiftShare'
+pod 'SwiftShare', :path => '../SwiftShare'
 ```
 * git repository address:
 ```ruby
-pod 'SwiftShare', :git => 'https://.../SwiftShare.git', :tag => '0.2.0'
+pod 'SwiftShare', :git => 'https://github.com/IDan14/SwiftShare.git', :tag => '0.3.0'
 ```
 * private specs repository:
 ```ruby
@@ -31,7 +31,7 @@ source 'https://.../specs-repo.git'
 source 'https://github.com/CocoaPods/Specs.git'
 
     target '<YOUR_APP>' do
-        pod 'SwiftShare', '~> 0.2.0'
+        pod 'SwiftShare', '~> 0.3.0'
     end
 ```
 

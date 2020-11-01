@@ -13,81 +13,67 @@ import SwiftyBeaver
 
 open class NetworkBaseManager {
 
-    public let jsonDecoder: JSONDecoder
-
     /// Error handler applied to all encountered errors.
     /// Closure expression returns true if error has been handled and no further handling is required.
     public var baseErrorHandler: ((_ error: Error) -> Bool)?
 
-    public init() {
-        self.jsonDecoder = JSONDecoder()
-    }
+    public init() {}
 
-    open func call(_ request: DataRequest, queue: DispatchQueue? = nil) -> Completable {
-        return Completable.create(subscribe: { (event) -> Disposable in
-            request.validate().responseData(queue: queue ?? .main, completionHandler: { [weak self] (response) in
+    /// Enclose network call as a Rx Completable
+    /// - Parameters:
+    ///   - dataRequest: Data request to be performed
+    ///   - queue: The queue on which the completion handler is dispatched. .main by default.
+    /// - Returns: Rx Completable
+    open func call(_ dataRequest: DataRequest, queue: DispatchQueue = .main) -> Completable {
+        return Completable.create { [weak self] (event) -> Disposable in
+            dataRequest.validate().response(queue: queue) { [weak self] (dataResponse) in
                 guard let self = self else { return }
-                NetworkBaseManager.verboseLog(request: request, response: response)
-                switch response.result {
+                NetworkBaseManager.verboseLog(request: dataRequest, response: dataResponse)
+                switch dataResponse.result {
                 case .success:
-                    NetworkBaseManager.debugLog(request: request)
+                    NetworkBaseManager.debugLog(request: dataRequest)
                     event(.completed)
                 case .failure(let error):
-                    if let appDataError = self.handleError(error, request: request, httpUrlResponse: response.response) {
+                    if let appDataError = self.handleError(error, for: dataRequest) {
                         event(.error(appDataError))
                     }
                 }
-            })
-            return Disposables.create {
-                request.cancel()
             }
-        })
+            return Disposables.create {
+                dataRequest.cancel()
+            }
+        }
+
     }
 
-    open func call<T>(_ request: DataRequest, type: T.Type, queue: DispatchQueue? = nil) -> Single<T> where T: Decodable {
-        return Single.create(subscribe: { (event) -> Disposable in
-            request.validate().responseData(queue: queue ?? .main, completionHandler: { [weak self] (response) in
+    /// Enclose network call as a Rx Single containing an object created from server response body
+    /// - Parameters:
+    ///   - dataRequest: Data request to be performed
+    ///   - queue: The queue on which the completion handler is dispatched. .main by default.
+    ///   - decoder: DataDecoder to use to decode the response. JSONDecoder() by default.
+    /// - Returns: Rx Single containing decoded object
+    open func call<T>(_ dataRequest: DataRequest, queue: DispatchQueue = .main, decoder: DataDecoder = JSONDecoder()) -> Single<T> where T: Decodable {
+        return Single.create { [weak self] (event) -> Disposable in
+            dataRequest.validate().responseDecodable(of: T.self, queue: queue, decoder: decoder) { [weak self] (dataResponse) in
                 guard let self = self else { return }
-                NetworkBaseManager.verboseLog(request: request, response: response)
-                switch response.result {
-                case .success(let data):
-                    do {
-                        let decoded = try self.decode(type, from: data)
-                        NetworkBaseManager.debugLog(request: request)
-                        event(.success(decoded))
-                    } catch let appDataError {
-                        let handled = self.baseErrorHandler?(appDataError) ?? false
-                        if !handled {
-                            event(.error(appDataError))
-                        }
-                    }
+                NetworkBaseManager.verboseLog(request: dataRequest, response: dataResponse)
+                switch dataResponse.result {
+                case .success(let value):
+                    NetworkBaseManager.debugLog(request: dataRequest)
+                    event(.success(value))
                 case .failure(let error):
-                    if let appDataError = self.handleError(error, request: request, httpUrlResponse: response.response) {
+                    if let appDataError = self.handleError(error, for: dataRequest) {
                         event(.error(appDataError))
                     }
                 }
-            })
-            return Disposables.create {
-                request.cancel()
             }
-        })
-    }
-
-    private func decode<T>(_ type: T.Type, from data: Data) throws -> T where T: Decodable {
-        do {
-            return try jsonDecoder.decode(type, from: data)
-        } catch let error as DecodingError {
-            SwiftyBeaver.debug("Decoding failed for: \(String(bytes: data, encoding: .utf8) ?? "")")
-            SwiftyBeaver.warning("Decoding error: \(error)")
-            throw AppDataError.jsonParsingError(reason: "Failed to decode \(type) data: \(error.localizedDescription)")
-        } catch let error {
-            SwiftyBeaver.warning("Unexpected error: \(error)")
-            throw AppDataError.unknownError(reason: "Failed to decode \(type) data: \(error.localizedDescription)")
+            return Disposables.create {
+                dataRequest.cancel()
+            }
         }
     }
 
-    /// Downloads file specified by URL and saves it in a local directory.
-    ///
+    /// Download file specified by URL and save it in a local directory.
     /// - Parameters:
     ///   - sourceUrl: source URL for the download
     ///   - toDirectory: destination directory
@@ -99,9 +85,9 @@ open class NetworkBaseManager {
                            toDirectory: FileManager.SearchPathDirectory = .documentDirectory,
                            subDirectory: String? = nil,
                            filename: String? = nil,
-                           queue: DispatchQueue? = nil) -> Single<URL> {
-        return Single.create(subscribe: { (event) -> Disposable in
-            let destination: DownloadRequest.Destination = { temporaryURL, response in
+                           queue: DispatchQueue = .main) -> Single<URL> {
+        return Single.create { [weak self ] (event) -> Disposable in
+            let destination: DownloadRequest.Destination = { (temporaryURL, response) in
                 let directoryURLs = FileManager.default.urls(for: toDirectory, in: .userDomainMask)
                 if directoryURLs.isEmpty {
                     return (temporaryURL, [])
@@ -114,39 +100,38 @@ open class NetworkBaseManager {
                     return (destinationURL, [.removePreviousFile, .createIntermediateDirectories])
                 }
             }
-            let request = AF.download(sourceUrl, to: destination)
-            request.validate().responseData(queue: queue ?? .main, completionHandler: { [weak self] (response) in
-//                SwiftyBeaver.verbose("REQUEST: \(request.debugDescription)")
-                SwiftyBeaver.verbose("RESPONSE: \(response.debugDescription)")
-                self?.handleDownloadResponse(response, request: request, event: event)
-            })
-            return Disposables.create {
-                request.cancel()
-            }
-        })
-    }
 
-    private func handleDownloadResponse(_ response: AFDownloadResponse<Data>, request: DownloadRequest, event: (SingleEvent<URL>) -> Void) {
-        switch response.result {
-        case .success:
-            NetworkBaseManager.debugLog(request: request)
-            if let destinationUrl = response.fileURL {
-                event(.success(destinationUrl))
-            } else {
-                let appDataError = AppDataError.noData(reason: "No destination URL")
-                let handled = self.baseErrorHandler?(appDataError) ?? false
-                if !handled {
-                    event(.error(appDataError))
+            let request = AF.download(sourceUrl, to: destination)
+            request.validate().response(queue: queue) { [weak self] (response) in
+                guard let self = self else { return }
+//                SwiftyBeaver.verbose("REQUEST: \(request.description)")
+                SwiftyBeaver.verbose("RESPONSE: \(response.debugDescription)")
+                switch response.result {
+                case .success(let url):
+                    NetworkBaseManager.debugLog(request: request)
+                    if let destinationUrl = url {
+                        event(.success(destinationUrl))
+                    } else {
+                        let appDataError = AppDataError.noData(reason: "No destination URL")
+                        let handled = self.baseErrorHandler?(appDataError) ?? false
+                        if !handled {
+                            event(.error(appDataError))
+                        }
+                    }
+                case .failure(let error):
+                    if let appDataError = self.handleError(error, for: request) {
+                        event(.error(appDataError))
+                    }
                 }
             }
-        case .failure(let error):
-            if let appDataError = self.handleError(error, request: request, httpUrlResponse: response.response) {
-                event(.error(appDataError))
+
+            return Disposables.create {
+                request.cancel()
             }
         }
     }
 
-    public static func verboseLog(request: DataRequest, response: AFDataResponse<Data>) {
+    public static func verboseLog<T>(request: DataRequest, response: DataResponse<T, AFError>) {
         SwiftyBeaver.verbose("REQUEST: \(request.description)")
         if let data = request.request?.httpBody {
             SwiftyBeaver.verbose("REQUEST BODY: \(String(data: data, encoding: .utf8) ?? "")")
@@ -159,7 +144,7 @@ open class NetworkBaseManager {
 
     public static func debugLog(request: Request, error: Error? = nil) {
         let requestType = request.request?.httpMethod ?? "Unknown HTTP Method"
-        let requestPath = request.request?.url?.lastPathComponent ?? "Unknown URL Path"
+        let requestPath = request.request?.url?.relativeString ?? "Unknown URL"
         if let error = error {
             SwiftyBeaver.debug("\(requestType) /\(requestPath) call failed: \(error)")
         } else {
@@ -167,26 +152,25 @@ open class NetworkBaseManager {
         }
     }
 
-    private func handleError(_ error: Error, request: Request, httpUrlResponse: HTTPURLResponse?) -> AppDataError? {
+    private func handleError(_ error: Error, for request: Request) -> AppDataError? {
         NetworkBaseManager.debugLog(request: request, error: error)
         let appDataError: AppDataError
-        if let appError = error as? AppDataError {
-            appDataError = appError
+        if let error = error as? AppDataError {
+            appDataError = error
         } else {
             let appErrorCode: Int
-            if let httpStatusCode = httpUrlResponse?.statusCode {
-                appErrorCode = httpStatusCode
+            if let statusCode = request.response?.statusCode {
+                appErrorCode = statusCode
             } else {
-                let appError = (error as NSError)
-                appErrorCode = (appError.domain == NSURLErrorDomain) ? appError.code : 0
+                let nsError = error as NSError
+                appErrorCode = (nsError.domain == NSURLErrorDomain) ? nsError.code : 0
             }
             appDataError = AppDataError.networkError(reason: error.localizedDescription, code: appErrorCode, url: request.request?.url)
         }
-        if let baseHandler = self.baseErrorHandler, baseHandler(appDataError) {
+        if let handler = baseErrorHandler, handler(appDataError) {
             return nil
         } else {
             return appDataError
         }
     }
-
 }
