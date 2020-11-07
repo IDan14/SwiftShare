@@ -15,4 +15,13 @@ public extension UIView {
         let nib = UINib(nibName: String(describing: type(of: self)), bundle: bundle)
         return nib.instantiate(withOwner: self, options: nil)[0] as? UIView
     }
+
+    /// Render the view layer and its sublayers into an UIImage.
+    /// - Returns: UIView content exported as UIImage
+    func asImage() -> UIImage {
+        let renderer = UIGraphicsImageRenderer(bounds: bounds)
+        return renderer.image { context in
+            layer.render(in: context.cgContext)
+        }
+    }
 }
