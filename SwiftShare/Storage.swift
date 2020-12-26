@@ -16,12 +16,12 @@ open class Storage<T> where T: Codable {
     /// Initialize file URL used for storage.
     /// - Parameter folderName: folder name (inside caches directory) to be used for storage
     /// - Parameter filename: file name to be used for storage
-    public convenience init?(folderName: String, filename: String) throws {
+    public convenience init(folderName: String, filename: String) throws {
         if let path = NSSearchPathForDirectoriesInDomains(.cachesDirectory, .userDomainMask, true).first {
             let folderURL = URL(fileURLWithPath: path).appendingPathComponent(folderName)
             try self.init(folderURL: folderURL, filename: filename)
         } else {
-            return nil
+            throw AppDataError.cachingError(reason: "Cannot create folder URL")
         }
     }
 
