@@ -52,7 +52,7 @@ open class NetworkBaseManager {
     ///   - queue: The queue on which the completion handler is dispatched. .main by default.
     ///   - decoder: DataDecoder to use to decode the response. JSONDecoder() by default.
     /// - Returns: Rx Single containing decoded object
-    open func call<T>(_ dataRequest: DataRequest, queue: DispatchQueue = .main, decoder: DataDecoder = JSONDecoder()) -> Single<T> where T: Decodable {
+    open func call<T>(_ dataRequest: DataRequest, queue: DispatchQueue = .main, decoder: Alamofire.DataDecoder = JSONDecoder()) -> Single<T> where T: Decodable {
         return Single.create { [weak self] (event) -> Disposable in
             dataRequest.validate().responseDecodable(of: T.self, queue: queue, decoder: decoder) { [weak self] (dataResponse) in
                 guard let self = self else { return }
@@ -63,7 +63,7 @@ open class NetworkBaseManager {
                     event(.success(value))
                 case .failure(let error):
                     if let appDataError = self.handleError(error, for: dataRequest) {
-                        event(.error(appDataError))
+                        event(.failure(appDataError))
                     }
                 }
             }
@@ -115,12 +115,12 @@ open class NetworkBaseManager {
                         let appDataError = AppDataError.noData(reason: "No destination URL")
                         let handled = self.baseErrorHandler?(appDataError) ?? false
                         if !handled {
-                            event(.error(appDataError))
+                            event(.failure(appDataError))
                         }
                     }
                 case .failure(let error):
                     if let appDataError = self.handleError(error, for: request) {
-                        event(.error(appDataError))
+                        event(.failure(appDataError))
                     }
                 }
             }

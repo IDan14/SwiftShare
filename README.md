@@ -1,5 +1,5 @@
 # SwiftShare - Cocoa Touch Framework & CocoaPod
-[![Podspec](https://img.shields.io/badge/private%20pod-0.3.0-blueviolet.svg?logo=gitlab)](SwiftShare.podspec)
+[![Podspec](https://img.shields.io/badge/private%20pod-0.4.0-blueviolet.svg?logo=gitlab)](SwiftShare.podspec)
 [![Platform](https://img.shields.io/badge/platform-iOS%2012%2B-black.svg)](SwiftShare.podspec)
 [![Language](https://img.shields.io/badge/language-Swift%205.3-orange.svg?logo=swift)](https://swift.org/)
 [![Xcode](https://img.shields.io/badge/Xcode-12%2B-blue.svg?logo=xcode)](https://developer.apple.com/xcode)
@@ -23,7 +23,7 @@ pod 'SwiftShare', :path => '../SwiftShare'
 ```
 * git repository address:
 ```ruby
-pod 'SwiftShare', :git => 'https://github.com/IDan14/SwiftShare.git', :tag => '0.3.0'
+pod 'SwiftShare', :git => 'https://github.com/IDan14/SwiftShare.git', :tag => '0.4.0'
 ```
 * private specs repository:
 ```ruby
@@ -31,7 +31,7 @@ source 'https://.../specs-repo.git'
 source 'https://github.com/CocoaPods/Specs.git'
 
     target '<YOUR_APP>' do
-        pod 'SwiftShare', '~> 0.3.0'
+        pod 'SwiftShare', '~> 0.4.0'
     end
 ```
 
@@ -59,9 +59,9 @@ source 'https://github.com/CocoaPods/Specs.git'
 
 ### Extensions
 * [UIContentSizeCategory](SwiftShare/Extensions/UIContentSizeCategory+.swift) - numeric values corresponding to each defined content category size
-* [UIImage](SwiftShare/Extensions/UIImage+.swift) - create image of specific color & size
+* [UIImage](SwiftShare/Extensions/UIImage+.swift) - create image of specific color & size; resize image
 * [UITextField](SwiftShare/Extensions/UITextField+.swift) - method for chaining an array of text fields objects (on clicking return key relinquish first responder status to next item)
-* [UIView](SwiftShare/Extensions/UIView+.swift) - load view from nib
+* [UIView](SwiftShare/Extensions/UIView+.swift) - load view from nib; render the view into an UIImage
 * [UIViewController](SwiftShare/Extensions/UIViewController+.swift) - display alert (with message, title, completion and click handlers)
 * [UNNotificationAttachment](SwiftShare/Extensions/UNNotificationAttachment+.swift) - create notification attachment (with file identifier and data)
 * [UtilityExtensions](SwiftShare/Extensions/UtilityExtensions.swift) - extensions for String, CustomStringConvertible, CustomDebugStringConvertible, NSAttributedString, NSMutableAttributedString

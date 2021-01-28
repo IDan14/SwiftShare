@@ -29,9 +29,9 @@ open class PostComposer {
         return charSet
     }()
 
-    //swiftlint:disable weak_delegate
+    // swiftlint:disable weak_delegate
     private var mailComposerDelegate: MFMailComposeViewControllerDelegate?
-    //swiftlint:enable weak_delegate
+    // swiftlint:enable weak_delegate
 
     public init() {}
 
@@ -47,9 +47,9 @@ open class PostComposer {
                 items.append(url)
             }
             let activityVC = UIActivityViewController(activityItems: items, applicationActivities: nil)
-            activityVC.completionWithItemsHandler = { (activityType: UIActivity.ActivityType?, completed: Bool, returnedItems: [Any]?, error: Error?) in
+            activityVC.completionWithItemsHandler = { (_: UIActivity.ActivityType?, completed: Bool, _: [Any]?, error: Error?) in
                 if let error = error {
-                    event(.error(error))
+                    event(.failure(error))
                 } else if completed {
                     event(.success(true))
                 } else {
@@ -70,7 +70,7 @@ open class PostComposer {
             case .linkedin, .whatsapp:
                 self.shareByURLScheme(message: url ?? text, type: type, event: event)
             case .mail:
-                event(.error(AppDataError.configurationError(reason: "Incorrect call, please use shareByMail")))
+                event(.failure(AppDataError.configurationError(reason: "Incorrect call, please use shareByMail")))
             }
             return Disposables.create()
         })
@@ -94,22 +94,22 @@ open class PostComposer {
                         event(.success(true))
                     case .cancelled:
                         if (type == .facebook), let url = URL(string: "fb://"), !UIApplication.shared.canOpenURL(url) {
-                            event(.error(AppDataError.unsupportedOperation(reason: "Cannot open app for share type: \(type)")))
+                            event(.failure(AppDataError.unsupportedOperation(reason: "Cannot open app for share type: \(type)")))
                         } else if (type == .twitter), let url = URL(string: "twitter://"), !UIApplication.shared.canOpenURL(url) {
-                            event(.error(AppDataError.unsupportedOperation(reason: "Cannot open app for share type: \(type)")))
+                            event(.failure(AppDataError.unsupportedOperation(reason: "Cannot open app for share type: \(type)")))
                         } else {
                             event(.success(false))
                         }
                     @unknown default:
-                        event(.error(AppDataError.unknownError(reason: "Unknown result")))
+                        event(.failure(AppDataError.unknownError(reason: "Unknown result")))
                     }
                 }
                 presenter.present(composeVC, animated: true)
             } else {
-                event(.error(AppDataError.unknownError(reason: "Failed to create composer for social networking service type: \(type)")))
+                event(.failure(AppDataError.unknownError(reason: "Failed to create composer for social networking service type: \(type)")))
             }
         } else {
-            event(.error(AppDataError.unknownError(reason: "No social networking service for type: \(type)")))
+            event(.failure(AppDataError.unknownError(reason: "No social networking service for type: \(type)")))
         }
     }
 
@@ -132,13 +132,13 @@ open class PostComposer {
                     UIApplication.shared.open(shareURL)
                     event(.success(true))
                 } else {
-                    event(.error(AppDataError.unsupportedOperation(reason: "Cannot open app for URL scheme share type: \(type)")))
+                    event(.failure(AppDataError.unsupportedOperation(reason: "Cannot open app for URL scheme share type: \(type)")))
                 }
             } else {
-                event(.error(AppDataError.unknownError(reason: "Failed to create URL for message: \(message)")))
+                event(.failure(AppDataError.unknownError(reason: "Failed to create URL for message: \(message)")))
             }
         } else {
-            event(.error(AppDataError.unknownError(reason: "Unsupported URL scheme share type: \(type)")))
+            event(.failure(AppDataError.unknownError(reason: "Unsupported URL scheme share type: \(type)")))
         }
     }
 
@@ -166,7 +166,7 @@ open class PostComposer {
                 mailComposer.mailComposeDelegate = self.mailComposerDelegate
                 presenter.present(mailComposer, animated: true)
             } else {
-                event(.error(AppDataError.unsupportedOperation(reason: "Cannot send mail")))
+                event(.failure(AppDataError.unsupportedOperation(reason: "Cannot send mail")))
             }
             return Disposables.create()
         })
@@ -184,13 +184,13 @@ open class PostComposer {
             controller.dismiss(animated: true) {
                 switch result {
                 case .failed:
-                    self.event(.error(AppDataError.unknownError(reason: "Failed to send email to contact address")))
+                    self.event(.failure(AppDataError.unknownError(reason: "Failed to send email to contact address")))
                 case .sent:
                     self.event(.success(true))
                 case .cancelled, .saved:
                     self.event(.success(false))
                 @unknown default:
-                    self.event(.error(AppDataError.unknownError(reason: "Unknown result")))
+                    self.event(.failure(AppDataError.unknownError(reason: "Unknown result")))
                 }
             }
         }
