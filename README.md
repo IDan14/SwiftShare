@@ -1,12 +1,12 @@
 # SwiftShare - Cocoa Touch Framework & CocoaPod
 [![Podspec](https://img.shields.io/badge/private%20pod-0.4.0-blueviolet.svg?logo=gitlab)](SwiftShare.podspec)
-[![Platform](https://img.shields.io/badge/platform-iOS%2012%2B-black.svg)](SwiftShare.podspec)
-[![Language](https://img.shields.io/badge/language-Swift%205.3-orange.svg?logo=swift)](https://swift.org/)
-[![Xcode](https://img.shields.io/badge/Xcode-12%2B-blue.svg?logo=xcode)](https://developer.apple.com/xcode)
+[![Platform](https://img.shields.io/badge/platform-iOS%2013%2B-black.svg)](SwiftShare.podspec)
+[![Language](https://img.shields.io/badge/language-Swift%205.6-orange.svg?logo=swift)](https://swift.org/)
+[![Xcode](https://img.shields.io/badge/Xcode-13%2B-blue.svg?logo=xcode)](https://developer.apple.com/xcode)
 
 ## Requirements:
-* Xcode 12+
-* Swift 5.3+
+* Xcode 13+
+* Swift 5.6+
 * CocoaPods 1.10+
 
 Project uses following libraries (as cocoa pods):

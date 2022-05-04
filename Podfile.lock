@@ -1,8 +1,8 @@
 PODS:
-  - Alamofire (5.4.1)
-  - RxSwift (6.0.0)
-  - SwiftLint (0.42.0)
-  - SwiftyBeaver (1.9.3)
+  - Alamofire (5.6.1)
+  - RxSwift (6.5.0)
+  - SwiftLint (0.47.1)
+  - SwiftyBeaver (1.9.5)
 
 DEPENDENCIES:
   - Alamofire
@@ -18,11 +18,11 @@ SPEC REPOS:
     - SwiftyBeaver
 
 SPEC CHECKSUMS:
-  Alamofire: 2291f7d21ca607c491dd17642e5d40fdcda0e65c
-  RxSwift: c14e798c59b9f6e9a2df8fd235602e85cc044295
-  SwiftLint: 4fa9579c63416865179bc416f0a92d55f009600d
-  SwiftyBeaver: 2e8acd6fc90c6d0a27055867a290794926d57c02
+  Alamofire: 87bd8c952f9a4454320fce00d9cc3de57bcadaf5
+  RxSwift: 5710a9e6b17f3c3d6e40d6e559b9fa1e813b2ef8
+  SwiftLint: f80f1be7fa96d30e0aa68e58d45d4ea1ccaac519
+  SwiftyBeaver: 84069991dd5dca07d7069100985badaca7f0ce82
 
-PODFILE CHECKSUM: 45478f1dbab43ee9274f45bf4751cf9214770835
+PODFILE CHECKSUM: 38480ad8e7c161f0817b2c163d53f88a44b4e3b9
 
 COCOAPODS: 1.10.0

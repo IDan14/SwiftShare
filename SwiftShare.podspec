@@ -16,7 +16,7 @@ Pod::Spec.new do |spec|
   #
 
   spec.name         = "SwiftShare"
-  spec.version      = "0.3.0"
+  spec.version      = "0.4.0"
   spec.summary      = "Shared Swift code (Cocoa Touch Framework)."
 
   # This description is used to generate tags and improve search results.
@@ -62,7 +62,7 @@ Pod::Spec.new do |spec|
   #  the deployment target. You can optionally include the target after the platform.
   #
 
-  spec.platform     = :ios, "12.0"
+  spec.platform     = :ios, "13.0"
 
   #  When using multiple platforms
   # spec.ios.deployment_target = "5.0"
@@ -127,7 +127,7 @@ Pod::Spec.new do |spec|
   #  where they will only apply to your library. If you depend on other Podspecs
   #  you can include multiple dependencies to ensure it works.
 
-  spec.swift_version = "5.3"
+  spec.swift_version = "5.6"
  # spec.pod_target_xcconfig = { 'SWIFT_VERSION' => '5.0' }
   spec.dependency 'RxSwift'
   spec.dependency 'Alamofire'
