@@ -6,6 +6,7 @@
 //  Copyright © 2019 Dan Ilca. All rights reserved.
 //
 
+import Foundation
 import SwiftyBeaver
 
 open class AppVersionChecker {

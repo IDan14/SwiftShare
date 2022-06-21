@@ -8,6 +8,11 @@
 
 import UIKit
 
+infix operator ^^ : LogicalDisjunctionPrecedence
+func ^^ (left: Bool, right: Bool) -> Bool {
+    return left != right
+}
+
 public extension String {
     static func hexStringFromData(_ data: Data) -> String {
         return data.reduce("") { $0 + String(format: "%02x", $1)}
