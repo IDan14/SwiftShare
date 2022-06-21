@@ -13,7 +13,7 @@
 		372E1B972861F64E00ED57C9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 372E1B952861F64E00ED57C9 /* Main.storyboard */; };
 		372E1B992861F65000ED57C9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 372E1B982861F65000ED57C9 /* Assets.xcassets */; };
 		372E1B9C2861F65000ED57C9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 372E1B9A2861F65000ED57C9 /* LaunchScreen.storyboard */; };
-		372E1BA52861F6B000ED57C9 /* SwiftShare in Frameworks */ = {isa = PBXBuildFile; productRef = 372E1BA42861F6B000ED57C9 /* SwiftShare */; };
+		373CDC5E28621C5B007AB15C /* SwiftShare in Frameworks */ = {isa = PBXBuildFile; productRef = 373CDC5D28621C5B007AB15C /* SwiftShare */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,7 +32,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				372E1BA52861F6B000ED57C9 /* SwiftShare in Frameworks */,
+				373CDC5E28621C5B007AB15C /* SwiftShare in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -86,7 +86,7 @@
 			);
 			name = Demo;
 			packageProductDependencies = (
-				372E1BA42861F6B000ED57C9 /* SwiftShare */,
+				373CDC5D28621C5B007AB15C /* SwiftShare */,
 			);
 			productName = Demo;
 			productReference = 372E1B8C2861F64E00ED57C9 /* Demo.app */;
@@ -117,7 +117,7 @@
 			);
 			mainGroup = 372E1B832861F64E00ED57C9;
 			packageReferences = (
-				372E1BA32861F6B000ED57C9 /* XCRemoteSwiftPackageReference "SwiftShare" */,
+				373CDC5C28621C5B007AB15C /* XCRemoteSwiftPackageReference "SwiftShare" */,
 			);
 			productRefGroup = 372E1B8D2861F64E00ED57C9 /* Products */;
 			projectDirPath = "";
@@ -368,20 +368,20 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		372E1BA32861F6B000ED57C9 /* XCRemoteSwiftPackageReference "SwiftShare" */ = {
+		373CDC5C28621C5B007AB15C /* XCRemoteSwiftPackageReference "SwiftShare" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/IDan14/SwiftShare";
 			requirement = {
-				branch = v050SwiftPMsupport;
-				kind = branch;
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.5.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		372E1BA42861F6B000ED57C9 /* SwiftShare */ = {
+		373CDC5D28621C5B007AB15C /* SwiftShare */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 372E1BA32861F6B000ED57C9 /* XCRemoteSwiftPackageReference "SwiftShare" */;
+			package = 373CDC5C28621C5B007AB15C /* XCRemoteSwiftPackageReference "SwiftShare" */;
 			productName = SwiftShare;
 		};
 /* End XCSwiftPackageProductDependency section */
