@@ -19,17 +19,15 @@ jobs:
           xcodebuild -version
       - name: Build
         env:
-          scheme: ${{ 'default' }}
+          scheme: SwiftShare
           platform: ${{ 'iOS Simulator' }}
           device: "iPhone 11"
         run: |
-          if [ $scheme = default ]; then scheme=$(cat default); fi
           xcodebuild clean build-for-testing -scheme "$scheme" -destination "platform=$platform,name=$device"
       - name: Test
         env:
-          scheme: ${{ 'default' }}
+          scheme: SwiftShare
           platform: ${{ 'iOS Simulator' }}
           device: "iPhone 11"
         run: |
-          if [ $scheme = default ]; then scheme=$(cat default); fi
           xcodebuild test-without-building -scheme "$scheme" -destination "platform=$platform,name=$device"
