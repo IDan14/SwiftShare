@@ -1,5 +1,5 @@
 # SwiftShare - Cocoa Touch Framework & CocoaPod
-[![Podspec](https://img.shields.io/badge/private%20pod-0.4.0-blueviolet.svg?logo=gitlab)](SwiftShare.podspec)
+[![Podspec](https://img.shields.io/badge/private%20pod-0.5.0-blueviolet.svg?logo=gitlab)](SwiftShare.podspec)
 [![Platform](https://img.shields.io/badge/platform-iOS%2013%2B-black.svg)](SwiftShare.podspec)
 [![Language](https://img.shields.io/badge/language-Swift%205.6-orange.svg?logo=swift)](https://swift.org/)
 [![Xcode](https://img.shields.io/badge/Xcode-13%2B-blue.svg?logo=xcode)](https://developer.apple.com/xcode)
@@ -16,14 +16,23 @@ Project uses following libraries (as cocoa pods):
 * [SwiftLint](https://github.com/realm/SwiftLint) (coding styles and conventions)
 
 ## Instalation
-To add it in your Xcode project using [CocoaPods](https://cocoapods.org), specify it in you Podfile. You may use:
+### Swift Package Manager
+To add it in your Xcode project using [Swift Package Manager](https://www.swift.org/package-manager/), specify in your `Package.swift`:
+```swift
+dependencies: [
+    .package(url: "https://github.com/IDan14/SwiftShare.git", .upToNextMajor(from: "0.5.0"))
+]
+```
+
+### Cocoapods
+To add it in your Xcode project using [CocoaPods](https://cocoapods.org), specify it in your `Podfile`. You may use:
 * local path:
 ```ruby
 pod 'SwiftShare', :path => '../SwiftShare'
 ```
 * git repository address:
 ```ruby
-pod 'SwiftShare', :git => 'https://github.com/IDan14/SwiftShare.git', :tag => '0.4.0'
+pod 'SwiftShare', :git => 'https://github.com/IDan14/SwiftShare.git', :tag => '0.5.0'
 ```
 * private specs repository:
 ```ruby
@@ -31,7 +40,7 @@ source 'https://.../specs-repo.git'
 source 'https://github.com/CocoaPods/Specs.git'
 
     target '<YOUR_APP>' do
-        pod 'SwiftShare', '~> 0.4.0'
+        pod 'SwiftShare', '~> 0.5.0'
     end
 ```
 
@@ -64,7 +73,7 @@ source 'https://github.com/CocoaPods/Specs.git'
 * [UIView](SwiftShare/Extensions/UIView+.swift) - load view from nib; render the view into an UIImage
 * [UIViewController](SwiftShare/Extensions/UIViewController+.swift) - display alert (with message, title, completion and click handlers)
 * [UNNotificationAttachment](SwiftShare/Extensions/UNNotificationAttachment+.swift) - create notification attachment (with file identifier and data)
-* [UtilityExtensions](SwiftShare/Extensions/UtilityExtensions.swift) - extensions for String, CustomStringConvertible, CustomDebugStringConvertible, NSAttributedString, NSMutableAttributedString
+* [UtilityExtensions](SwiftShare/Extensions/UtilityExtensions.swift) - extensions for Bool, String, CustomStringConvertible, CustomDebugStringConvertible, NSAttributedString, NSMutableAttributedString
 
 ### UI
 * [HUDView](SwiftShare/UI/HUDView.swift) - Simple view to display a text and / or image in a rounded corner rectangle in the center of another view

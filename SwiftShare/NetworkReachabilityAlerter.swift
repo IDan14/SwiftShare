@@ -6,7 +6,7 @@
 //  Copyright © 2019 Dan Ilca. All rights reserved.
 //
 
-import Foundation
+import UIKit
 import Alamofire
 import SwiftyBeaver
 
