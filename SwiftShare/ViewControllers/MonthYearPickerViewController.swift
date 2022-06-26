@@ -8,7 +8,7 @@
 
 import UIKit
 
-public protocol MonthYearPickerDelegate: class {
+public protocol MonthYearPickerDelegate: AnyObject {
     func select(month: (number: Int, name: String), year: Int)
 }
 

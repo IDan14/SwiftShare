@@ -1,15 +1,16 @@
 # SwiftShare - Cocoa Touch Framework & CocoaPod
-[![Podspec](https://img.shields.io/badge/private%20pod-0.5.0-blueviolet.svg?logo=gitlab)](SwiftShare.podspec)
-[![Platform](https://img.shields.io/badge/platform-iOS%2013%2B-black.svg)](SwiftShare.podspec)
-[![Language](https://img.shields.io/badge/language-Swift%205.6-orange.svg?logo=swift)](https://swift.org/)
+[![Language](https://img.shields.io/badge/Language-Swift%205.6-orange.svg?logo=swift)](https://swift.org/)
+[![Platform](https://img.shields.io/badge/Platform-iOS%2013%2B-black.svg)](SwiftShare.podspec)
 [![Xcode](https://img.shields.io/badge/Xcode-13%2B-blue.svg?logo=xcode)](https://developer.apple.com/xcode)
+[![Podspec](https://img.shields.io/badge/Private%20pod-0.5.0-blueviolet.svg?logo=gitlab)](SwiftShare.podspec)
+[![Swift Package Manager](https://img.shields.io/badge/Swift_Package_Manager-compatible-orange?style=flat-square)](https://www.swift.org/package-manager/)
 
 ## Requirements:
 * Xcode 13+
 * Swift 5.6+
 * CocoaPods 1.10+
 
-Project uses following libraries (as cocoa pods):
+Project uses following libraries:
 * [RxSwift](https://github.com/ReactiveX/RxSwift)
 * [Alamofire](https://github.com/Alamofire/Alamofire) (networking)
 * [SwiftyBeaver](https://github.com/SwiftyBeaver/SwiftyBeaver) (logging)

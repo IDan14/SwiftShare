@@ -17,19 +17,31 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6yr-qH-3uR">
-                                <rect key="frame" x="179.5" y="352.5" width="55" height="31"/>
+                                <rect key="frame" x="147.5" y="352.5" width="119" height="31"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Alert"/>
                                 <connections>
                                     <action selector="clickAlertButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="o3N-UI-dm0"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GwW-8s-F6T">
+                                <rect key="frame" x="147.5" y="403.5" width="119" height="31"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Custom Segue"/>
+                                <connections>
+                                    <segue destination="5sJ-DM-KDw" kind="custom" customClass="SegueGoLeftToRight" customModule="SwiftShare" id="kJY-lo-tgJ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="GwW-8s-F6T" firstAttribute="leading" secondItem="6yr-qH-3uR" secondAttribute="leading" id="2M3-PA-8As"/>
                             <constraint firstItem="6yr-qH-3uR" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-80" id="6QC-18-D4K"/>
+                            <constraint firstItem="GwW-8s-F6T" firstAttribute="centerX" secondItem="6yr-qH-3uR" secondAttribute="centerX" id="cA9-Ag-JVk"/>
+                            <constraint firstItem="GwW-8s-F6T" firstAttribute="top" secondItem="6yr-qH-3uR" secondAttribute="bottom" constant="20" id="vRh-bN-WPt"/>
                             <constraint firstItem="6yr-qH-3uR" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="wMq-KM-UJb"/>
+                            <constraint firstItem="GwW-8s-F6T" firstAttribute="trailing" secondItem="6yr-qH-3uR" secondAttribute="trailing" id="xrU-wf-c76"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -37,10 +49,28 @@
             </objects>
             <point key="canvasLocation" x="30" y="65"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="aPA-hC-DLS">
+            <objects>
+                <viewController id="5sJ-DM-KDw" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="hYY-pF-noM">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="M2z-QL-vA2"/>
+                        <color key="backgroundColor" systemColor="systemTealColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WZ5-Sj-yG2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="742" y="65"/>
+        </scene>
     </scenes>
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemTealColor">
+            <color red="0.18823529411764706" green="0.69019607843137254" blue="0.7803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
