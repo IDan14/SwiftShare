@@ -2,7 +2,7 @@
 [![Language](https://img.shields.io/badge/Language-Swift%205.6-orange.svg?logo=swift)](https://swift.org/)
 [![Platform](https://img.shields.io/badge/Platform-iOS%2013%2B-black.svg)](SwiftShare.podspec)
 [![Xcode](https://img.shields.io/badge/Xcode-13%2B-blue.svg?logo=xcode)](https://developer.apple.com/xcode)
-[![Podspec](https://img.shields.io/badge/Private%20pod-0.5.0-blueviolet.svg?logo=gitlab)](SwiftShare.podspec)
+[![Podspec](https://img.shields.io/badge/Private%20pod-0.5.1-blueviolet.svg?logo=gitlab)](SwiftShare.podspec)
 [![Swift Package Manager](https://img.shields.io/badge/Swift_Package_Manager-compatible-orange?style=flat-square)](https://www.swift.org/package-manager/)
 
 ## Requirements:
@@ -21,7 +21,7 @@ Project uses following libraries:
 To add it in your Xcode project using [Swift Package Manager](https://www.swift.org/package-manager/), specify in your `Package.swift`:
 ```swift
 dependencies: [
-    .package(url: "https://github.com/IDan14/SwiftShare.git", .upToNextMajor(from: "0.5.0"))
+    .package(url: "https://github.com/IDan14/SwiftShare.git", .upToNextMajor(from: "0.5.1"))
 ]
 ```
 
@@ -33,7 +33,7 @@ pod 'SwiftShare', :path => '../SwiftShare'
 ```
 * git repository address:
 ```ruby
-pod 'SwiftShare', :git => 'https://github.com/IDan14/SwiftShare.git', :tag => '0.5.0'
+pod 'SwiftShare', :git => 'https://github.com/IDan14/SwiftShare.git', :tag => '0.5.1'
 ```
 * private specs repository:
 ```ruby
@@ -41,7 +41,7 @@ source 'https://.../specs-repo.git'
 source 'https://github.com/CocoaPods/Specs.git'
 
     target '<YOUR_APP>' do
-        pod 'SwiftShare', '~> 0.5.0'
+        pod 'SwiftShare', '~> 0.5.1'
     end
 ```
 
@@ -50,6 +50,7 @@ source 'https://github.com/CocoaPods/Specs.git'
 ### Common types
 * [AppDataError](SwiftShare/AppDataError.swift) - enum defining common error types
 * [ChangeType](SwiftShare/ChangeType.swift) - enum defining functions of CRUD: create, replace, update, delete
+* [FlowCoordinator](SwiftShare/FlowCoordinator.swift) - protocol for Flow Coordinator design pattern
 * [HTTPStatusCodes](SwiftShare/HTTPStatusCodes.swift) - enum defining common HTTP status codes
 
 ### Caching
@@ -64,8 +65,9 @@ source 'https://github.com/CocoaPods/Specs.git'
 * [NetworkBaseManager](SwiftShare/NetworkBaseManager.swift) - base manager class providing Rx sequences for network operations.
 * [NetworkReachabilityAlerter](SwiftShare/NetworkReachabilityAlerter.swift) - logs and displays alerts about network status changes.
 
-### Logging
+### Other
 * [UtilityLogging](SwiftShare/UtilityLogging.swift) - methods for setting up Swifty Beaver console & file logger.
+* [PDFCreator](SwiftShare/PDFCreator.swift) - helper class for exporting to PDF
 
 ### Extensions
 * [UIContentSizeCategory](SwiftShare/Extensions/UIContentSizeCategory+.swift) - numeric values corresponding to each defined content category size
