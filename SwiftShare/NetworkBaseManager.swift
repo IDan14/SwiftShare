@@ -9,7 +9,6 @@
 import Foundation
 import Alamofire
 import RxSwift
-import SwiftyBeaver
 
 open class NetworkBaseManager {
 
@@ -104,8 +103,8 @@ open class NetworkBaseManager {
             let request = AF.download(sourceUrl, to: destination)
             request.validate().response(queue: queue) { [weak self] (response) in
                 guard let self = self else { return }
-//                SwiftyBeaver.verbose("REQUEST: \(request.description)")
-                SwiftyBeaver.verbose("RESPONSE: \(response.debugDescription)")
+//                logger.verbose("REQUEST: \(request.description)")
+                logger.verbose("RESPONSE: \(response.debugDescription)")
                 switch response.result {
                 case .success(let url):
                     NetworkBaseManager.debugLog(request: request)
@@ -132,13 +131,13 @@ open class NetworkBaseManager {
     }
 
     public static func verboseLog<T>(request: DataRequest, response: DataResponse<T, AFError>) {
-        SwiftyBeaver.verbose("REQUEST: \(request.description)")
+        logger.verbose("REQUEST: \(request.description)")
         if let data = request.request?.httpBody {
-            SwiftyBeaver.verbose("REQUEST BODY: \(String(data: data, encoding: .utf8) ?? "")")
+            logger.verbose("REQUEST BODY: \(String(data: data, encoding: .utf8) ?? "")")
         }
-        SwiftyBeaver.verbose("RESPONSE: \(response.debugDescription)")
+        logger.verbose("RESPONSE: \(response.debugDescription)")
         if let data = response.data {
-            SwiftyBeaver.verbose("RESPONSE BODY: \(String(data: data, encoding: .utf8) ?? "")")
+            logger.verbose("RESPONSE BODY: \(String(data: data, encoding: .utf8) ?? "")")
         }
     }
 
@@ -146,9 +145,9 @@ open class NetworkBaseManager {
         let requestType = request.request?.httpMethod ?? "Unknown HTTP Method"
         let requestPath = request.request?.url?.relativeString ?? "Unknown URL"
         if let error = error {
-            SwiftyBeaver.debug("\(requestType) /\(requestPath) call failed: \(error)")
+            logger.debug("\(requestType) /\(requestPath) call failed: \(error)")
         } else {
-            SwiftyBeaver.debug("\(requestType) /\(requestPath) call completed")
+            logger.debug("\(requestType) /\(requestPath) call completed")
         }
     }
 

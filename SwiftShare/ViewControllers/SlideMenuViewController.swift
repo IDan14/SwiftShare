@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import SwiftyBeaver
 
 public protocol SlideMenu {
     func createCenterViewController() throws -> UIViewController
@@ -225,7 +224,7 @@ open class SlideMenuViewController: UIViewController, SlideMenu {
             handlePanChangedSlideSide(sideMenu)
             recognizer.setTranslation(CGPoint.zero, in: view)
         default:
-            SwiftyBeaver.warning("other recognizer state")
+            logger.warning("other recognizer state")
         }
     }
 
@@ -268,7 +267,7 @@ open class SlideMenuViewController: UIViewController, SlideMenu {
             case .right:
                 isTouchingSideMenu = (point.x - sideMenu.view.frame.minX + sideMenuTouchEdge) > 0
             }
-//            SwiftyBeaver.info("pointX: \(point.x) | sideMenu frame: \(sideMenu.view.frame) | isTouchingSideMenu: \(isTouchingSideMenu)")
+//            logger.info("pointX: \(point.x) | sideMenu frame: \(sideMenu.view.frame) | isTouchingSideMenu: \(isTouchingSideMenu)")
         }
     }
 
@@ -283,7 +282,7 @@ open class SlideMenuViewController: UIViewController, SlideMenu {
     }
 
     open func didSetSlideMenuState() {
-//        SwiftyBeaver.verbose("didSetSlideMenuState \(slideMenuState)")
+//        logger.verbose("didSetSlideMenuState \(slideMenuState)")
         if let sideMenu = sideMenuNC, slideMenuState == .closed {
             if sideMenu.viewControllers.count > 1 {
                 sideMenu.popToRootViewController(animated: false)

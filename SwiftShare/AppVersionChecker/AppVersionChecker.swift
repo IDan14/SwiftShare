@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import SwiftyBeaver
 
 open class AppVersionChecker {
 
@@ -20,10 +19,10 @@ open class AppVersionChecker {
             let data = try Data(contentsOf: fileURL)
             return try JSONDecoder().decode(VersionData.self, from: data)
         } catch let error as DecodingError {
-            SwiftyBeaver.warning("JSON decoding failed: \(error)")
+            logger.warning("JSON decoding failed: \(error)")
             throw AppDataError.jsonParsingError(reason: "Failed to decode version data")
         } catch {
-            SwiftyBeaver.warning("Data loading faled: \(error)")
+            logger.warning("Data loading faled: \(error)")
             throw AppDataError.noData(reason: "Failed to load version data")
         }
     }

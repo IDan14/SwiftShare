@@ -7,7 +7,6 @@
 //
 
 import UserNotifications
-import SwiftyBeaver
 
 public extension UNNotificationAttachment {
 
@@ -20,7 +19,7 @@ public extension UNNotificationAttachment {
             try data.write(to: fileURL)
             return try UNNotificationAttachment(identifier: fileIdentifier, url: fileURL, options: nil)
         } catch {
-            SwiftyBeaver.error(error, "Failed to create notification attachment")
+            logger.error(error, "Failed to create notification attachment")
         }
         return nil
     }
