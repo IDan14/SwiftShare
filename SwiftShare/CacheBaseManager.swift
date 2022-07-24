@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import SwiftyBeaver
 
 open class CacheBaseManager {
 
@@ -27,7 +26,7 @@ open class CacheBaseManager {
                 return nil
             }
         } catch {
-            SwiftyBeaver.error(AppDataError.cachingError(reason: "Load \(T.self) failed: \(error)"))
+            logger.error(AppDataError.cachingError(reason: "Load \(T.self) failed: \(error)"))
             return nil
         }
     }
@@ -40,7 +39,7 @@ open class CacheBaseManager {
         do {
             try storage.save(value)
         } catch {
-            SwiftyBeaver.error(AppDataError.cachingError(reason: "Save \(T.self) failed: \(error)"))
+            logger.error(AppDataError.cachingError(reason: "Save \(T.self) failed: \(error)"))
         }
     }
 
@@ -50,7 +49,7 @@ open class CacheBaseManager {
         do {
             try storage.delete()
         } catch {
-            SwiftyBeaver.error(AppDataError.cachingError(reason: "Clear cache file failed: \(error)"))
+            logger.error(AppDataError.cachingError(reason: "Clear cache file failed: \(error)"))
         }
     }
 }

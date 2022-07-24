@@ -7,7 +7,6 @@
 //
 
 import PDFKit
-import SwiftyBeaver
 
 open class PDFCreator {
 
@@ -46,7 +45,7 @@ open class PDFCreator {
                     imageRatio: CGFloat = 1.0,
                     backgroundColor: UIColor? = nil,
                     metaData: [CFString: String]? = nil) -> Data {
-        SwiftyBeaver.debug("Create flyer - page size: \(size) inches | title: \(title ?? "")")
+        logger.debug("Create flyer - page size: \(size) inches | title: \(title ?? "")")
         let format = UIGraphicsPDFRendererFormat()
         if let pdfMetaData = metaData {
             format.documentInfo = pdfMetaData as [String: Any]
@@ -106,7 +105,7 @@ open class PDFCreator {
         let maxHeight = pageRect.height * maxRatio
         let aspectRatio = min(maxWidth / image.size.width, maxHeight / image.size.height)
         let scaledSize = CGSize(width: image.size.width * aspectRatio, height: image.size.height * aspectRatio)
-        SwiftyBeaver.debug("Image of size: \(image.size) scaled to: \(scaledSize) | Page size: \(pageRect.size)")
+        logger.debug("Image of size: \(image.size) scaled to: \(scaledSize) | Page size: \(pageRect.size)")
         let imageRect = CGRect(x: (pageRect.width - scaledSize.width) / 2.0, y: (pageRect.height - scaledSize.height) / 2.0, width: scaledSize.width, height: scaledSize.height)
         image.draw(in: imageRect)
     }

@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import SwiftyBeaver
 
 @available(iOSApplicationExtension, unavailable)
 open class UpdateOverlay {
@@ -35,7 +34,7 @@ open class UpdateOverlay {
             updateUrl = url
             allowCancel = true
         case .skipped, .newer, .upToDate:
-            SwiftyBeaver.info("Application up to date, newer or version marked as skipped")
+            logger.info("Application up to date, newer or version marked as skipped")
             return
         }
         let overlay = buildOverlay(updateUrl: updateUrl, allowCancel: allowCancel, skipAction: skipAction)

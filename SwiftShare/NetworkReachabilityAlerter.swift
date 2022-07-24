@@ -8,7 +8,6 @@
 
 import UIKit
 import Alamofire
-import SwiftyBeaver
 
 public class NetworkReachabilityAlerter {
 
@@ -16,13 +15,13 @@ public class NetworkReachabilityAlerter {
 
     public init?(showOnStart: Bool) {
         guard let reachabilityManager = Alamofire.NetworkReachabilityManager() else {
-            SwiftyBeaver.error("Network reachability manager initialization failed")
+            logger.error("Network reachability manager initialization failed")
             return nil
         }
         networkReachabilityManager = reachabilityManager
         if !reachabilityManager.isReachable {
             if showOnStart {
-                SwiftyBeaver.warning("Network status in not reachable (on start)")
+                logger.warning("Network status in not reachable (on start)")
                 displayNotReachableAlert()
             }
         }
@@ -30,12 +29,12 @@ public class NetworkReachabilityAlerter {
         reachabilityManager.startListening { [weak self] (status) in
             switch status {
             case .notReachable:
-                SwiftyBeaver.warning("Network status in not reachable")
+                logger.warning("Network status in not reachable")
                 self?.displayNotReachableAlert()
             case .reachable(let connectionType):
-                SwiftyBeaver.info("Network status is reachable, connection type: \(connectionType)")
+                logger.info("Network status is reachable, connection type: \(connectionType)")
             case .unknown:
-                SwiftyBeaver.warning("Network status in unknown")
+                logger.warning("Network status in unknown")
             }
         }
     }

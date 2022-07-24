@@ -16,7 +16,7 @@ Pod::Spec.new do |spec|
   #
 
   spec.name         = "SwiftShare"
-  spec.version      = "0.5.1"
+  spec.version      = "0.5.2"
   spec.summary      = "Shared Swift code (Cocoa Touch Framework)."
 
   # This description is used to generate tags and improve search results.
