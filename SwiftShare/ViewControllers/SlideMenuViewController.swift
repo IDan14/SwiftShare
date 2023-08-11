@@ -47,6 +47,7 @@ open class SlideMenuViewController: UIViewController, SlideMenu {
     open var sideMenuOpenScreenWidthRatio = CGFloat(0.8)
     open var sideMenuTouchEdge = CGFloat(60)
     open var sideMenuSlideDuration = 0.5
+    open var panGestureRecognizer: UIPanGestureRecognizer?
     private var isTouchingSideMenu = false
 
     override open func viewDidLoad() {
@@ -56,6 +57,7 @@ open class SlideMenuViewController: UIViewController, SlideMenu {
         }
         let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(handlePanGesture(_:)))
         self.view.addGestureRecognizer(panGestureRecognizer)
+        self.panGestureRecognizer = panGestureRecognizer
     }
 
     override open func viewWillLayoutSubviews() {
