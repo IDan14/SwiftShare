@@ -2,7 +2,7 @@
 [![Language](https://img.shields.io/badge/Language-Swift%205.6-orange.svg?logo=swift)](https://swift.org/)
 [![Platform](https://img.shields.io/badge/Platform-iOS%2013%2B-black.svg)](SwiftShare.podspec)
 [![Xcode](https://img.shields.io/badge/Xcode-13%2B-blue.svg?logo=xcode)](https://developer.apple.com/xcode)
-[![Podspec](https://img.shields.io/badge/Private%20pod-0.5.2-blueviolet.svg?logo=gitlab)](SwiftShare.podspec)
+[![Podspec](https://img.shields.io/badge/Private%20pod-0.5.3-blueviolet.svg?logo=gitlab)](SwiftShare.podspec)
 [![Swift Package Manager](https://img.shields.io/badge/Swift_Package_Manager-compatible-orange?style=flat-square)](https://www.swift.org/package-manager/)
 
 ## Requirements:
@@ -21,7 +21,7 @@ Project uses following libraries:
 To add it in your Xcode project using [Swift Package Manager](https://www.swift.org/package-manager/), specify in your `Package.swift`:
 ```swift
 dependencies: [
-    .package(url: "https://github.com/IDan14/SwiftShare.git", .upToNextMajor(from: "0.5.2"))
+    .package(url: "https://github.com/IDan14/SwiftShare.git", .upToNextMajor(from: "0.5.3"))
 ]
 ```
 
@@ -33,7 +33,7 @@ pod 'SwiftShare', :path => '../SwiftShare'
 ```
 * git repository address:
 ```ruby
-pod 'SwiftShare', :git => 'https://github.com/IDan14/SwiftShare.git', :tag => '0.5.2'
+pod 'SwiftShare', :git => 'https://github.com/IDan14/SwiftShare.git', :tag => '0.5.3'
 ```
 * private specs repository:
 ```ruby
@@ -41,7 +41,7 @@ source 'https://.../specs-repo.git'
 source 'https://github.com/CocoaPods/Specs.git'
 
     target '<YOUR_APP>' do
-        pod 'SwiftShare', '~> 0.5.2'
+        pod 'SwiftShare', '~> 0.5.3'
     end
 ```
 
@@ -66,8 +66,8 @@ source 'https://github.com/CocoaPods/Specs.git'
 * [NetworkReachabilityAlerter](SwiftShare/NetworkReachabilityAlerter.swift) - logs and displays alerts about network status changes.
 
 ### Other
-* [AppLogger](SwiftShare/AppLogger.swift) - protocol defining a set of functions for a logger
-* [AppLoggerSwiftyBeaver](SwiftShare/AppLoggerSwiftyBeaver.swift) - implementation for [AppLogger](SwiftShare/AppLogger.swift) protocol using [SwiftyBeaver](https://github.com/SwiftyBeaver/SwiftyBeaver) library
+* [AppLogger](SwiftShare/AppLogger.swift) - Base class for a logger
+* [AppLoggerSwiftyBeaver](SwiftShare/AppLoggerSwiftyBeaver.swift) - Subclass of [AppLogger](SwiftShare/AppLogger.swift) implementing a wrapper for using [SwiftyBeaver](https://github.com/SwiftyBeaver/SwiftyBeaver) library
 * [PDFCreator](SwiftShare/PDFCreator.swift) - helper class for exporting to PDF
 
 ### Extensions

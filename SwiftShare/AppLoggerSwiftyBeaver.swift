@@ -11,7 +11,7 @@ import SwiftyBeaver
 
 let logger: AppLogger.Type = AppLoggerSwiftyBeaver.self
 
-open class AppLoggerSwiftyBeaver {
+open class AppLoggerSwiftyBeaver: AppLogger {
 
     public class func addDestination(_ destination: BaseDestination) {
         SwiftyBeaver.addDestination(destination)
@@ -37,27 +37,24 @@ open class AppLoggerSwiftyBeaver {
         file.format = "$Dyyyy-MM-dd HH:mm:ss.SSS$d *$L* $N.$F:$l - $M"
         return file
     }
-}
 
-extension AppLoggerSwiftyBeaver: AppLogger {
-
-    open class func verbose(_ message: @autoclosure () -> Any,
-                            _ context: Any? = nil,
-                            file: String = #file,
-                            function: String = #function,
-                            line: Int = #line) {
-        SwiftyBeaver.verbose(message(), file, function, line: line, context: context)
-    }
-
-    open class func debug(_ message: @autoclosure () -> Any,
+    open override class func verbose(_ message: @autoclosure () -> Any,
                           _ context: Any? = nil,
                           file: String = #file,
                           function: String = #function,
                           line: Int = #line) {
+        SwiftyBeaver.verbose(message(), file, function, line: line, context: context)
+    }
+
+    open override class func debug(_ message: @autoclosure () -> Any,
+                        _ context: Any? = nil,
+                        file: String = #file,
+                        function: String = #function,
+                        line: Int = #line) {
         SwiftyBeaver.debug(message(), file, function, line: line, context: context)
     }
 
-    open class func info(_ message: @autoclosure () -> Any,
+    open override class func info(_ message: @autoclosure () -> Any,
                             _ context: Any? = nil,
                             file: String = #file,
                             function: String = #function,
@@ -65,19 +62,19 @@ extension AppLoggerSwiftyBeaver: AppLogger {
         SwiftyBeaver.info(message(), file, function, line: line, context: context)
     }
 
-    open class func warning(_ message: @autoclosure () -> Any,
-                            _ context: Any? = nil,
-                            file: String = #file,
-                            function: String = #function,
-                            line: Int = #line) {
+    open override class func warning(_ message: @autoclosure () -> Any,
+                                 _ context: Any? = nil,
+                                 file: String = #file,
+                                 function: String = #function,
+                                 line: Int = #line) {
         SwiftyBeaver.warning(message(), file, function, line: line, context: context)
     }
 
-    open class func error(_ message: @autoclosure () -> Any,
-                          _ context: Any? = nil,
-                          file: String = #file,
-                          function: String = #function,
-                          line: Int = #line) {
+    open override class func error(_ message: @autoclosure () -> Any,
+                               _ context: Any? = nil,
+                               file: String = #file,
+                               function: String = #function,
+                               line: Int = #line) {
         SwiftyBeaver.error(message(), file, function, line: line, context: context)
     }
 }
