@@ -97,3 +97,15 @@ public extension NSMutableAttributedString {
         return self
     }
 }
+
+public extension Data {
+
+    var jsonPrettyString: String? {
+        if let object = try? JSONSerialization.jsonObject(with: self, options: []),
+           let data = try? JSONSerialization.data(withJSONObject: object, options: [.prettyPrinted]),
+           let str = String(data: data, encoding: .utf8) {
+            return str
+        }
+        return nil
+    }
+}

@@ -1,14 +1,13 @@
-# SwiftShare - Cocoa Touch Framework & CocoaPod
+# SwiftShare - A Cocoa Touch Framework for learning purposes
 [![Language](https://img.shields.io/badge/Language-Swift%205.6-orange.svg?logo=swift)](https://swift.org/)
 [![Platform](https://img.shields.io/badge/Platform-iOS%2013%2B-black.svg)](SwiftShare.podspec)
 [![Xcode](https://img.shields.io/badge/Xcode-13%2B-blue.svg?logo=xcode)](https://developer.apple.com/xcode)
-[![Podspec](https://img.shields.io/badge/Private%20pod-0.5.3-blueviolet.svg?logo=gitlab)](SwiftShare.podspec)
+[![Podspec](https://img.shields.io/badge/Private%20pod-0.6.0-blueviolet.svg?logo=gitlab)](SwiftShare.podspec)
 [![Swift Package Manager](https://img.shields.io/badge/Swift_Package_Manager-compatible-orange?style=flat-square)](https://www.swift.org/package-manager/)
 
 ## Requirements:
 * Xcode 13+
 * Swift 5.6+
-* CocoaPods 1.10+
 
 Project uses following libraries:
 * [RxSwift](https://github.com/ReactiveX/RxSwift)
@@ -21,7 +20,7 @@ Project uses following libraries:
 To add it in your Xcode project using [Swift Package Manager](https://www.swift.org/package-manager/), specify in your `Package.swift`:
 ```swift
 dependencies: [
-    .package(url: "https://github.com/IDan14/SwiftShare.git", .upToNextMajor(from: "0.5.3"))
+    .package(url: "https://github.com/IDan14/SwiftShare.git", .upToNextMajor(from: "0.6.0"))
 ]
 ```
 
@@ -33,7 +32,7 @@ pod 'SwiftShare', :path => '../SwiftShare'
 ```
 * git repository address:
 ```ruby
-pod 'SwiftShare', :git => 'https://github.com/IDan14/SwiftShare.git', :tag => '0.5.3'
+pod 'SwiftShare', :git => 'https://github.com/IDan14/SwiftShare.git', :tag => '0.6.0'
 ```
 * private specs repository:
 ```ruby
@@ -41,7 +40,7 @@ source 'https://.../specs-repo.git'
 source 'https://github.com/CocoaPods/Specs.git'
 
     target '<YOUR_APP>' do
-        pod 'SwiftShare', '~> 0.5.3'
+        pod 'SwiftShare', '~> 0.6.0'
     end
 ```
 
@@ -62,7 +61,9 @@ source 'https://github.com/CocoaPods/Specs.git'
 * [KeychainConfiguration](SwiftShare/KeychainConfiguration.swift) - A simple struct that defines the service and access group to be used by multiple apps.
 
 ### Networking
-* [NetworkBaseManager](SwiftShare/NetworkBaseManager.swift) - base manager class providing Rx sequences for network operations.
+* [NetworkBaseManager](SwiftShare/NetworkBaseManager.swift) - base manager class for network operations.
+* [NetworkCombineManager](SwiftShare/NetworkCombineManager.swift) - base manager class providing Combine publishers for network operations.
+* [NetworkRxSwiftManager](SwiftShare/NetworkRxSwiftManager.swift) - base manager class providing Rx sequences for network operations.
 * [NetworkReachabilityAlerter](SwiftShare/NetworkReachabilityAlerter.swift) - logs and displays alerts about network status changes.
 
 ### Other

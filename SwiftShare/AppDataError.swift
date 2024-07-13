@@ -16,6 +16,7 @@ public enum AppDataError: Error {
     case cachingError(reason: String)
     case unsupportedOperation(reason: String)
     case configurationError(reason: String)
+    case handledError
     case unknownError(reason: String)
 
     public var reason: String {
@@ -34,6 +35,8 @@ public enum AppDataError: Error {
             return msg
         case .configurationError(let msg):
             return msg
+        case .handledError:
+            return "Error has been handled by the app"
         case .unknownError(let msg):
             return msg
         }
@@ -55,6 +58,8 @@ public enum AppDataError: Error {
             return "unsupportedOperation"
         case .configurationError:
             return "configurationError"
+        case .handledError:
+            return "handledError"
         case .unknownError:
             return "unknownError"
         }

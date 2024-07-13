@@ -276,7 +276,7 @@ open class SlideMenuViewController: UIViewController, SlideMenu {
     // MARK: - SlideMenu
 
     open func createCenterViewController() throws -> UIViewController {
-        throw AppDataError.configurationError(reason: "Method must be overriden")
+        throw AppDataError.configurationError(reason: "Method should be overriden")
     }
 
     open func createSideMenuNavigationController() throws -> UINavigationController {
