@@ -13,7 +13,7 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
       - name: Show versions
         run: |
           xcodebuild -version
@@ -21,13 +21,13 @@ jobs:
         env:
           scheme: SwiftShare
           platform: ${{ 'iOS Simulator' }}
-          device: "iPhone 11"
+          device: "iPhone 14"
         run: |
           xcodebuild clean build-for-testing -scheme "$scheme" -destination "platform=$platform,name=$device"
       - name: Test
         env:
           scheme: SwiftShare
           platform: ${{ 'iOS Simulator' }}
-          device: "iPhone 11"
+          device: "iPhone 14"
         run: |
           xcodebuild test-without-building -scheme "$scheme" -destination "platform=$platform,name=$device"
